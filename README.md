@@ -1,4 +1,4 @@
 Simpler.Net
 ===========
 
-Various methods and utilities for simplifying common tasks across .NET
+A collection of various methods and utilities for simplifying common tasks across .NET framework.
