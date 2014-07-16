@@ -9,6 +9,7 @@
         <projectUrl>https://github.com/modo-lv/Simpler.Net/tree/master/Simpler.Net</projectUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>All sorts of miscellaneous, mostly atomic utilities, methods, workarounds and wrappers.</description>
+        <tags>c# .net simpler</tags>
     </metadata>
     <files>
         <file src="..\bin\Release\Simpler.Net.dll" target="lib\Simpler.Net.dll" />

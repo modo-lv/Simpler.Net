@@ -16,7 +16,7 @@ namespace Simpler.Net.FileSystem
         /// </summary>
         /// <param name="pathList"></param>
         /// <returns></returns>
-        public static SimplerTreeNode GetDirectoryTree(ICollection<String> pathList)
+        public static SimplerTreeNode GetDirectoryTree(IEnumerable<String> pathList)
         {
             var result = new SimplerTreeNode();
             foreach (var path in pathList)
