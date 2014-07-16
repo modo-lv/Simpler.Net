@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>Simpler.Net</id>
+        <version>0.1.0</version>
+        <title>Simpler.Net</title>
+        <authors>Modus Operandi</authors>
+        <licenseUrl>https://github.com/modo-lv/Simpler.Net/blob/master/Simpler.Net/LICENSE</licenseUrl>
+        <projectUrl>https://github.com/modo-lv/Simpler.Net/tree/master/Simpler.Net</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>All sorts of miscellaneous, mostly atomic utilities, methods, workarounds and wrappers.</description>
+    </metadata>
+    <files>
+        <file src="..\bin\Release\Simpler.Net.dll" target="lib\Simpler.Net.dll" />
+    </files>
+</package>
