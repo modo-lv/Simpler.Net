@@ -50,13 +50,18 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="DirectoryTests.cs" />
+    <Compile Include="PathTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Simpler.Net.FileSystem\Simpler.Net.FileSystem.csproj">
       <Project>{1A557205-2F66-441A-AE73-DA2CA3CDFD3C}</Project>
       <Name>Simpler.Net.FileSystem</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Simpler.Net\Simpler.Net.csproj">
+      <Project>{06B0DF96-B013-411D-BAB5-996DDAB5E3B0}</Project>
+      <Name>Simpler.Net</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

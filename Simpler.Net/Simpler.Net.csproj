@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1A557205-2F66-441A-AE73-DA2CA3CDFD3C}</ProjectGuid>
+    <ProjectGuid>{06B0DF96-B013-411D-BAB5-996DDAB5E3B0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Simpler.Net.FileSystem</RootNamespace>
-    <AssemblyName>Simpler.Net.FileSystem</AssemblyName>
+    <RootNamespace>Simpler.Net</RootNamespace>
+    <AssemblyName>Simpler.Net</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -40,15 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SimplerDirectory.cs" />
-    <Compile Include="SimplerPath.cs" />
+    <Compile Include="SimplerTreeNode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Simpler.Net\Simpler.Net.csproj">
-      <Project>{06b0df96-b013-411d-bab5-996ddab5e3b0}</Project>
-      <Name>Simpler.Net</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

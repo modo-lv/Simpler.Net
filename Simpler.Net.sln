@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simpler.Net.FileSystem", "S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simpler.Net.FileSystem.Tests", "Simpler.Net.FileSystem.Tests\Simpler.Net.FileSystem.Tests.csproj", "{1E0CD169-0757-4DE2-A8C3-FFAAF7A33FF1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simpler.Net", "Simpler.Net\Simpler.Net.csproj", "{06B0DF96-B013-411D-BAB5-996DDAB5E3B0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{1E0CD169-0757-4DE2-A8C3-FFAAF7A33FF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E0CD169-0757-4DE2-A8C3-FFAAF7A33FF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E0CD169-0757-4DE2-A8C3-FFAAF7A33FF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06B0DF96-B013-411D-BAB5-996DDAB5E3B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06B0DF96-B013-411D-BAB5-996DDAB5E3B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06B0DF96-B013-411D-BAB5-996DDAB5E3B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06B0DF96-B013-411D-BAB5-996DDAB5E3B0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
