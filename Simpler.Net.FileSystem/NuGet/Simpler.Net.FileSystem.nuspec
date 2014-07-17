@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>Simpler.Net.FileSystem</id>
-        <version>0.4.2</version>
+        <version>0.4.3</version>
         <title>Simpler.Net.FileSystem</title>
         <authors>Modus Operandi</authors>
         <licenseUrl>https://github.com/modo-lv/Simpler.Net/blob/master/Simpler.Net.FileSystem/LICENSE</licenseUrl>

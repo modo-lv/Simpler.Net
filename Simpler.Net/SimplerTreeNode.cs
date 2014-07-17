@@ -43,7 +43,9 @@ namespace Simpler.Net
         /// <returns></returns>
         public SimplerTreeNode AddNewChild(String name)
         {
-            var node = new SimplerTreeNode(name);
+            var node = new SimplerTreeNode(name) {
+                Parent = this,
+            };
             Children.Add(node);
             return node;
         }

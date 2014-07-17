@@ -19,9 +19,8 @@ namespace Simpler.Net.FileSystem
         public static SimplerTreeNode GetDirectoryTree(IEnumerable<String> pathList)
         {
             var result = new SimplerTreeNode();
-            foreach (var path in pathList)
-            {
-                var parts = path.Split('\\', '/');
+            foreach (var path in pathList) {
+                var parts = SimplerPath.Split(path);
                 var parent = result;
                 foreach (var part in parts)
                 {

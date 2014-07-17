@@ -63,6 +63,7 @@ namespace Simpler.Net.FileSystem.Tests
                         break;
                 }
             }
+            Assert.AreSame(result, result.Children[0].Parent);
         }
     }
 }
