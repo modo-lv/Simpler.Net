@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PathAndName.cs" />
     <Compile Include="SimplerDirectory.cs" />
     <Compile Include="SimplerPath.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

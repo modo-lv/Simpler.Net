@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Simpler.Net.FileSystem.Tests
@@ -26,18 +28,19 @@ namespace Simpler.Net.FileSystem.Tests
         {
             // Arrange
             const string expectation = @"C:\folder1\folder2\folder3\someFile.txt";
+            var input = new[] {"nonFolder", @"C:\folder1\\\", @"\folder2", "folder3", "someFile.txt"};
 
             // Act
-            var result = SimplerPath.Combine("nonFolder", @"C:\folder1\\\", @"\folder2", "folder3", "someFile.txt");
+            var result = SimplerPath.Combine(input);
 
             // Assert
             Assert.AreEqual(expectation, result);
         }
 
         [TestMethod]
-        public void Path_Combine_HandleNoArguments()
+        public void Path_Combine_HandleEmptyArray()
         {
-            SimplerPath.Combine();
+            SimplerPath.Combine(new String[0]);
         }
 
         [TestMethod]
@@ -73,6 +76,19 @@ namespace Simpler.Net.FileSystem.Tests
         }
 
         [TestMethod]
+        public void Path_Combine_DriveLetter()
+        {
+            // Arrange
+            const string expected = @"C:\Folder1\folder2\FOLDER3\someFile.txt";
+
+            // Act
+            var result = SimplerPath.Combine(SimplerPath.Split(Input));
+
+            // Assert
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
         public void Path_Clean_BasicFunctionality()
         {
             // Arrange
@@ -80,6 +96,19 @@ namespace Simpler.Net.FileSystem.Tests
 
             // Act
             var result = SimplerPath.Clean(Input);
+
+            // Assert
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        public void Path_SplitPathAndName_BasicFunctionality()
+        {
+            // Arrange
+            var expected = new PathAndName(@"C:\Folder1\folder2\FOLDER3", "someFile.txt");
+
+            // Act
+            var result = SimplerPath.SplitPathAndName(Input);
 
             // Assert
             Assert.AreEqual(expected, result);

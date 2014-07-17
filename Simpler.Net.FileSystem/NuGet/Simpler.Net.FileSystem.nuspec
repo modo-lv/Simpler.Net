@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>Simpler.Net.FileSystem</id>
-        <version>0.3.1</version>
+        <version>0.4.1</version>
         <title>Simpler.Net.FileSystem</title>
         <authors>Modus Operandi</authors>
         <licenseUrl>https://github.com/modo-lv/Simpler.Net/blob/master/Simpler.Net.FileSystem/LICENSE</licenseUrl>
@@ -15,6 +15,6 @@
         </dependencies>
     </metadata>
     <files>
-        <file src="..\bin\Release\Simpler.Net.FileSystem.dll" target="lib\Simpler.Net.FileSystem.dll" />
+        <file src="C:\home\martin\dev\misc\Simpler.Net\Simpler.Net.FileSystem\bin\Release\Simpler.Net.FileSystem.dll" target="lib\Simpler.Net.FileSystem.dll" />
     </files>
 </package>
