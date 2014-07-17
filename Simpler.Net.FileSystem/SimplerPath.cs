@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 
@@ -35,6 +38,49 @@ namespace Simpler.Net.FileSystem
             while (result.Contains(@"\\"))
                 result = result.Replace(@"\\", @"\");
             return result;
+        }
+
+        /// <summary>
+        /// Syntactic sugar for splitting a path into its constituent parts.
+        /// </summary>
+        /// <param name="path">Path to split.</param>
+        /// <returns>A list of parts making up the path.</returns>
+        public static IList<String> Split(String path)
+        {
+            return
+                path.Split(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar)
+                    .Select(Trim)
+                    .Where(p => !String.IsNullOrWhiteSpace(p)) // Remove empty elements
+                    .ToList();
+        }
+
+        /// <summary>
+        /// Trim directory separator characters off a path.
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        public static String Trim(String path)
+        {
+            return path.Trim(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
+        }
+
+        /// <summary>
+        /// Trim and remove duplicate separator characters from a path.
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        public static String Clean(String path)
+        {
+            var sep = "" + Path.DirectorySeparatorChar + Path.DirectorySeparatorChar;
+            var altSep = "" + Path.AltDirectorySeparatorChar + Path.AltDirectorySeparatorChar;
+
+            while (path.Contains(sep))
+                path = path.Replace(sep, Path.DirectorySeparatorChar.ToString(CultureInfo.InvariantCulture));
+
+            while (path.Contains(altSep))
+                path = path.Replace(altSep, Path.AltDirectorySeparatorChar.ToString(CultureInfo.InvariantCulture));
+
+            return Trim(path);
         }
     }
 }
