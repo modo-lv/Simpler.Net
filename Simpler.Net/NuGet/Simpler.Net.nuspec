@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>Simpler.Net</id>
-        <version>0.1.0</version>
+        <version>0.1.1</version>
         <title>Simpler.Net</title>
         <authors>Modus Operandi</authors>
         <licenseUrl>https://github.com/modo-lv/Simpler.Net/blob/master/Simpler.Net/LICENSE</licenseUrl>
@@ -12,6 +12,6 @@
         <tags>c# .net simpler</tags>
     </metadata>
     <files>
-        <file src="..\bin\Release\Simpler.Net.dll" target="lib\Simpler.Net.dll" />
+        <file src="C:\home\martin\dev\misc\Simpler.Net\Simpler.Net\bin\Release\Simpler.Net.dll" target="lib\net40\Simpler.Net.dll" />
     </files>
 </package>

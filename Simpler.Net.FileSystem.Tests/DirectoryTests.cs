@@ -26,6 +26,7 @@ namespace Simpler.Net.FileSystem.Tests
                 @"e\g",
                 @"e\g\h",
                 @"e\g/i",
+                @"uploaded\New folder",
             };
 
             // Act
