@@ -35,6 +35,12 @@ namespace Simpler.Net.FileSystem.Tests
         }
 
         [TestMethod]
+        public void Path_Combine_HandleNoArguments()
+        {
+            SimplerPath.Combine();
+        }
+
+        [TestMethod]
         public void Path_Split_BasicFunctionality()
         {
             // Arrange

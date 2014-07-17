@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -30,13 +29,12 @@ namespace Simpler.Net.FileSystem
         /// <returns>Combined path. For example, @"C:\X\ABC\def\"</returns>
         public static String Combine(params String[] pathParts)
         {
+            if (pathParts.Length < 1)
+                return String.Empty;
+
             var result = pathParts.Length < 2
                 ? pathParts[0]
-                : pathParts.Select(t => t.TrimStart('\\', '/')).Aggregate("", Path.Combine);
-            while (result.Contains("//"))
-                result = result.Replace("//", "/");
-            while (result.Contains(@"\\"))
-                result = result.Replace(@"\\", @"\");
+                : pathParts.Select(Clean).Aggregate(Path.Combine);
             return result;
         }
 
