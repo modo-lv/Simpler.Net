@@ -33,6 +33,8 @@ namespace Simpler.Net.FileSystem
                 ? String.Empty
                 : pathParts.Select(
                     p => {
+                        if (p == null)
+                            return String.Empty;
                         p = Clean(p);
                         // Drive letter
                         if (Regex.Match(p, @"^[a-z]:$", RegexOptions.IgnoreCase).Success)

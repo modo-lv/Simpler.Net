@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Simpler.Net.FileSystem.Tests
@@ -38,9 +39,10 @@ namespace Simpler.Net.FileSystem.Tests
         }
 
         [TestMethod]
-        public void Path_Combine_HandleEmptyArray()
+        public void Path_Combine_HandleEmptyValues()
         {
             SimplerPath.Combine(new String[0]);
+            SimplerPath.Combine(new[] {"A", null, "B"});
         }
 
         [TestMethod]
