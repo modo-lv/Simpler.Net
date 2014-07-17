@@ -93,6 +93,8 @@ namespace Simpler.Net.FileSystem
         public static PathAndName SplitPathAndName(String path)
         {
             var parts = Split(path);
+            if (!parts.Any())
+                throw new Exception("Cannot split an empty path!");
             var name = parts.Last();
             parts.RemoveAt(parts.Count - 1);
             return new PathAndName {

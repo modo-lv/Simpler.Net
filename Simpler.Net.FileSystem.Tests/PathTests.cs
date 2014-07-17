@@ -113,5 +113,16 @@ namespace Simpler.Net.FileSystem.Tests
             // Assert
             Assert.AreEqual(expected, result);
         }
+
+        [TestMethod]
+        public void Path_SplitPathAndName_EmptyPath()
+        {
+            try {
+                SimplerPath.SplitPathAndName(@"\\\\\\");
+            } catch (Exception ex) {
+                if (ex.Message != "Cannot split an empty path!")
+                    throw;
+            }
+        }
     }
 }
