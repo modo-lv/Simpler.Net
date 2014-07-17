@@ -52,6 +52,21 @@ namespace Simpler.Net.FileSystem.Tests
         }
 
         [TestMethod]
+        public void Path_Split_SingleElement()
+        {
+            // Arrange
+            const string input = "Folder";
+            var expectation = new[] {input};
+
+            // Act
+            var result = SimplerPath.Split(input);
+
+            // Assert
+            Assert.AreEqual(1, result.Count);
+            Assert.AreEqual(expectation[0], result[0]);
+        }
+
+        [TestMethod]
         public void Path_Clean_BasicFunctionality()
         {
             // Arrange
