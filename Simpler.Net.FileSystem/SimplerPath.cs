@@ -44,6 +44,17 @@ namespace Simpler.Net.FileSystem
         }
 
         /// <summary>
+        /// An overload for <see cref="SimplerPath.Combine(IEnumerable&lt;String&gt;)"/> that allows
+        /// for passing path parts as arguments instead of an IEnumerable
+        /// </summary>
+        /// <param name="pathParts"></param>
+        /// <returns></returns>
+        public static String Combine(params String[] pathParts)
+        {
+            return Combine((IEnumerable<String>)pathParts);
+        }
+
+        /// <summary>
         /// Syntactic sugar for splitting a path into its constituent parts.
         /// </summary>
         /// <param name="path">Path to split.</param>
