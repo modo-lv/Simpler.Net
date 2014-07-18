@@ -91,6 +91,19 @@ namespace Simpler.Net.FileSystem.Tests
         }
 
         [TestMethod]
+        public void Paht_Combine_PartsWithoutSeparators()
+        {
+            // Arrange
+            var input = new[] {"one", "two", "three"};
+
+            // ACt
+            var result = Path.Combine(input);
+
+            // Assert
+            Assert.AreEqual(@"one\two\three", result);
+        }
+
+        [TestMethod]
         public void Path_Clean_BasicFunctionality()
         {
             // Arrange
