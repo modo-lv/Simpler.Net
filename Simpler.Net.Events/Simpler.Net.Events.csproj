@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{06B0DF96-B013-411D-BAB5-996DDAB5E3B0}</ProjectGuid>
+    <ProjectGuid>{052B17E5-0E57-4BE5-B65C-1A8643903CC2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Simpler.Net</RootNamespace>
-    <AssemblyName>Simpler.Net</AssemblyName>
+    <RootNamespace>Simpler.Net.Events</RootNamespace>
+    <AssemblyName>Simpler.Net.Events</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -29,7 +29,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\Simpler.Net.XML</DocumentationFile>
+    <DocumentationFile>bin\Release\Simpler.Net.Events.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -41,7 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SimplerTreeNode.cs" />
+    <Compile Include="Logging\ISimplerEventLogger.cs" />
+    <Compile Include="Logging\SimplerEventLogEntry.cs" />
+    <Compile Include="Logging\SimplerEventLogger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
