@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>Simpler.Net.Wpf</id>
+        <version>0.1.0</version>
+        <title>Simpler.Net.Wpf</title>
+        <authors>Modus Operandi</authors>
+        <licenseUrl>https://github.com/modo-lv/Simpler.Net/blob/master/Simpler.Net.Wpf/LICENSE</licenseUrl>
+        <projectUrl>https://github.com/modo-lv/Simpler.Net/tree/master/Simpler.Net.Wpf</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Utility and helper classes and extensions for Microsoft's Windows Presentation Foundation.</description>
+        <tags>c# .net simpler wpf binding commands</tags>
+        <frameworkAssemblies>
+            <frameworkAssembly assemblyName="PresentationCore" targetFramework="" />
+            <frameworkAssembly assemblyName="PresentationFramework" targetFramework="" />
+            <frameworkAssembly assemblyName="System.Drawing" targetFramework="" />
+            <frameworkAssembly assemblyName="System.Windows.Forms" targetFramework="" />
+            <frameworkAssembly assemblyName="WindowsBase" targetFramework="" />
+            <frameworkAssembly assemblyName="System.Xaml" targetFramework="" />
+        </frameworkAssemblies>
+    </metadata>
+    <files>
+        <file src="..\bin\Release\Simpler.Net.Wpf.dll" target="lib\net45\Simpler.Net.Wpf.dll" />
+    </files>
+</package>
