@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>Simpler.Net.Wpf</id>
-        <version>0.1.0</version>
+        <version>0.2.0</version>
         <title>Simpler.Net.Wpf</title>
         <authors>Modus Operandi</authors>
         <licenseUrl>https://github.com/modo-lv/Simpler.Net/blob/master/Simpler.Net.Wpf/LICENSE</licenseUrl>
@@ -20,6 +20,6 @@
         </frameworkAssemblies>
     </metadata>
     <files>
-        <file src="..\bin\Release\Simpler.Net.Wpf.dll" target="lib\net45\Simpler.Net.Wpf.dll" />
+        <file src="..\Simpler.Net.Wpf\bin\Release\Simpler.Net.Wpf.dll" target="lib\net45\Simpler.Net.Wpf.dll" />
     </files>
 </package>
