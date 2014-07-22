@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simpler.Net.Events", "Simpl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simpler.Net.Wpf", "Simpler.Net.Wpf\Simpler.Net.Wpf.csproj", "{BFC31283-2491-494A-86D1-C462BB2808A5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simpler.Net.Events.Tests", "Simpler.Net.Events.Tests\Simpler.Net.Events.Tests.csproj", "{14E2BA15-F413-4C9B-BC3B-4684237D63AA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{BFC31283-2491-494A-86D1-C462BB2808A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BFC31283-2491-494A-86D1-C462BB2808A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BFC31283-2491-494A-86D1-C462BB2808A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14E2BA15-F413-4C9B-BC3B-4684237D63AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14E2BA15-F413-4C9B-BC3B-4684237D63AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14E2BA15-F413-4C9B-BC3B-4684237D63AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14E2BA15-F413-4C9B-BC3B-4684237D63AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

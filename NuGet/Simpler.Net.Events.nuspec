@@ -2,9 +2,9 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>Simpler.Net.Events</id>
-        <version>0.1.0</version>
+        <version>0.1.1</version>
         <title>Simpler.Net.Events</title>
-        <authors>Modus Operandi</authors>
+        <authors>Modus Operandi (MoDo.lv)</authors>
         <licenseUrl>https://github.com/modo-lv/Simpler.Net/blob/master/Simpler.Net.Events/LICENSE</licenseUrl>
         <projectUrl>https://github.com/modo-lv/Simpler.Net/tree/master/Simpler.Net.Events</projectUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -12,6 +12,6 @@
         <tags>c# .net simpler events logging</tags>
     </metadata>
     <files>
-        <file src="..\bin\Release\Simpler.Net.Events.dll" target="lib\net20\Simpler.Net.Events.dll" />
+        <file src="..\Simpler.Net.Events\bin\Release\Simpler.Net.Events.dll" target="lib\net20\Simpler.Net.Events.dll" />
     </files>
 </package>

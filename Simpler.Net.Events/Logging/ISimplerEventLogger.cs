@@ -23,7 +23,7 @@ namespace Simpler.Net.Events.Logging
         /// <param name="data">Additional data.</param>
         /// <returns>Newly created event log.</returns>
         SimplerEventLogEntry AddNewEntry(String message = null, TraceLevel severity = TraceLevel.Info,
-            DateTime time = default(DateTime), Object data = null);
+            DateTime? time = null, Object data = null);
 
         /// <summary>
         /// Add a prepared log entry.
@@ -39,7 +39,7 @@ namespace Simpler.Net.Events.Logging
         /// <param name="time">Date and time when the error occured.</param>
         /// <param name="data">Additional data.</param>
         /// <returns>Newly created error log entry.</returns>
-        SimplerEventLogEntry AddNewError(String message = null, DateTime time = default(DateTime), Object data = null);
+        SimplerEventLogEntry AddNewError(String message = null, DateTime? time = null, Object data = null);
 
         /// <summary>
         /// Add a new entry with Informational severity to the event log and return it.
@@ -48,6 +48,6 @@ namespace Simpler.Net.Events.Logging
         /// <param name="time">Date and time when the event occured.</param>
         /// <param name="data">Additional data.</param>
         /// <returns>Newly created info log entry.</returns>
-        SimplerEventLogEntry AddNewInfo(String message = null, DateTime time = default(DateTime), Object data = null);
+        SimplerEventLogEntry AddNewInfo(String message = null, DateTime? time = null, Object data = null);
    }
 }

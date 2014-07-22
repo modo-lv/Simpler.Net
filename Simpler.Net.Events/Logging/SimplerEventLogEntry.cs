@@ -29,13 +29,6 @@ namespace Simpler.Net.Events.Logging
         public Object Data { get; set; }
 
         /// <summary>
-        /// Parameterless constructor.
-        /// </summary>
-        public SimplerEventLogEntry()
-        {
-        }
-
-        /// <summary>
         /// Parametrized constructor.
         /// </summary>
         /// <param name="severity"></param>
@@ -45,12 +38,12 @@ namespace Simpler.Net.Events.Logging
         public SimplerEventLogEntry(
             String message = null,
             TraceLevel severity = TraceLevel.Info,
-            DateTime time = default(DateTime),
-            Object data = null) : this()
+            DateTime? time = null,
+            Object data = null)
         {
             Severity = severity;
             Message = message;
-            Time = time;
+            Time = time.HasValue ? time.Value : DateTime.Now;
             Data = data;
         }
     }
