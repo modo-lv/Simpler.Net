@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>Simpler.Net.Text</id>
+        <version>0.1</version>
+        <title>Simpler.Net.Text</title>
+        <authors>Modus Operandi</authors>
+        <licenseUrl>https://github.com/modo-lv/Simpler.Net/blob/master/Simpler.Net/LICENSE</licenseUrl>
+        <projectUrl>https://github.com/modo-lv/Simpler.Net/tree/master/Simpler.Net</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Miscellaneous utilities for working with text.</description>
+        <tags>c# .net simpler text wrap wrapping wordwrap</tags>
+    </metadata>
+    <files>
+        <file src="C:\home\martin\dev\misc\Simpler.Net\Simpler.Net.Text\bin\Release\Simpler.Net.Text.dll" target="lib\net40\Simpler.Net.Text.dll" />
+    </files>
+</package>
