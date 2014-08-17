@@ -17,13 +17,9 @@ namespace Simpler.Net.Text
         /// <summary>
         /// Maximum line width, in characters.
         /// </summary>
-        public virtual UInt32 Width { get; set; }
+        public virtual Int32 Width { get; set; }
 
-        public SimplerTextWrapper()
-        {
-        }
-
-        public SimplerTextWrapper(string content, UInt32? width = null)
+        public SimplerTextWrapper(string content, Int32? width = null)
         {
             Content = content;
             if (width.HasValue)
@@ -34,36 +30,50 @@ namespace Simpler.Net.Text
         /// Get the content as word-wrapped text, each line as a separate string.
         /// </summary>
         /// <returns></returns>
-        public virtual IEnumerable<String> GetWrapped()
+        public virtual IEnumerable<String> GetWrappedLines()
         {
-            var line = new StringBuilder();
-            var word = new StringBuilder();
-            for (var a = 0; a < Content.Length; a++)
+            var lines = Content.Split(new[] {"\r\n", "\r", "\n"}, StringSplitOptions.None);
+
+            foreach (var rawLine in lines)
             {
-                var chr = Content[a];
-                var length = a % Width;
-
-                if (chr == ' ' || (a > 0 && length == 0))
+                var line = new StringBuilder();
+                var word = new StringBuilder();
+                for (var a = 0; a < rawLine.Length; a++)
                 {
-                    // Check if the line ends
-                    if (length == 0)
-                    {
-                        yield return line.ToString();
-                        line = new StringBuilder(word.ToString().TrimStart(' '));
-                        word = new StringBuilder();
-                    }
-                    else
-                    {
-                        line.Append(word);
-                        word = new StringBuilder(chr.ToString());
-                        continue;
-                    }
-                }
+                    var chr = rawLine[a];
+                    var length = a % Width;
 
-                word.Append(chr);
+                    if (chr == ' ' || (a > 0 && length == 0))
+                    {
+                        // Check if the line ends
+                        if (length == 0)
+                        {
+                            yield return line.ToString();
+                            line = new StringBuilder(word.ToString().TrimStart(' '));
+                            word = new StringBuilder();
+                        }
+                        else
+                        {
+                            line.Append(word);
+                            word = new StringBuilder(chr.ToString());
+                            continue;
+                        }
+                    }
+
+                    word.Append(chr);
+                }
+                line.Append(word);
+                yield return line.ToString();
             }
-            line.Append(word);
-            yield return line.ToString();
+        }
+
+        /// <summary>
+        /// Get the content as word-wrapped text.
+        /// </summary>
+        /// <returns></returns>
+        public virtual String GetWrappedText()
+        {
+            return String.Join(Environment.NewLine, GetWrappedLines());
         }
     }
 }

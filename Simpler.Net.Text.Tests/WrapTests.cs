@@ -18,11 +18,30 @@ namespace Simpler.Net.Text.Tests
             var expect = new List<String> {@"This line should", @"split before 'split'."};
 
             // Act
-            var result = wrap.GetWrapped();
+            var result = wrap.GetWrappedLines();
 
             // Assert
             Assert.AreEqual(expect.ToList()[0], result.ToList()[0]);
             Assert.AreEqual(expect.ToList()[1], result.ToList()[1]);
+        }
+
+        [TestMethod]
+        public void MultiLine_Wraps_Correctly()
+        {
+            // Arrange
+            var wrap = new SimplerTextWrapper(
+                content: @"Result should be
+three lines.",
+                width: 15);
+            const string expect = @"Result should
+be
+three lines.";
+
+            // Act
+            var result = wrap.GetWrappedText();
+
+            // Assert
+            Assert.AreEqual(expect, result);
         }
     }
 }
