@@ -57,5 +57,25 @@ namespace Simpler.Net.Text.Tests
             for (var a = 0; a < expect.Length; a++)
                 Assert.AreEqual(expect[a], result[a]);
         }
+
+        [TestMethod]
+        public void StringPad()
+        {
+            // Arrange
+            const String input = "ABC";
+            const Int32 length = 5;
+            var expect = new[] {"ABC  ", "  ABC", " ABC "};
+
+            // Act
+            var result = new[]
+            {
+                input.Pad(length, SimplerTextAlignment.Left),
+                input.Pad(length, SimplerTextAlignment.Right),
+                input.Pad(length, SimplerTextAlignment.Center),
+            };
+
+            for (var a = 0; a < expect.Length; a++)
+                Assert.AreEqual(expect[a], result[a]);
+        }
     }
 }

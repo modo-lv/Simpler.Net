@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>Simpler.Net.Text</id>
-        <version>0.3</version>
+        <version>0.4.1</version>
         <title>Simpler.Net.Text</title>
         <authors>Modus Operandi</authors>
         <licenseUrl>https://github.com/modo-lv/Simpler.Net/blob/master/Simpler.Net/LICENSE</licenseUrl>

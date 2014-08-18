@@ -34,14 +34,14 @@ namespace Simpler.Net.Text
 
         public SimplerTextPadder()
         {
-            if (PadWith == null)
-                PadWith = " ";
+            PadWith = " ";
         }
 
         public SimplerTextPadder(String text, String padWith = null) : this()
         {
             Text = text;
-            PadWith = padWith;
+            if (padWith != null)
+                PadWith = padWith;
         }
 
         /// <summary>
