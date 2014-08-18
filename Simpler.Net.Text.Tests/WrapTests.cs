@@ -43,6 +43,21 @@ three lines.";
             // Assert
             Assert.AreEqual(expect, result);
         }
+
+        [TestMethod]
+        public void FullLength_DoesntWrap()
+        {
+            // Arrange
+            const Int32 length = 5;
+            var input = '-'.Repeat(length);
+            var expect = input;
+
+            // Act
+            var result = new SimplerTextWrapper(input, input.Length).GetWrappedText();
+
+            // Assert
+            Assert.AreEqual(expect, result);
+        }
     }
 }
     

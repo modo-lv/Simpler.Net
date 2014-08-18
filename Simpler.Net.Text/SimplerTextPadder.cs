@@ -15,7 +15,7 @@ namespace Simpler.Net.Text
         /// </summary>
         public virtual string Text { get; set; }
 
-        public virtual String PadWith { get; set; }
+        public virtual String PadChar { get; set; }
 
         /// <summary>
         /// How to align the text within the new padded string.
@@ -34,14 +34,14 @@ namespace Simpler.Net.Text
 
         public SimplerTextPadder()
         {
-            PadWith = " ";
+            PadChar = " ";
         }
 
-        public SimplerTextPadder(String text, String padWith = null) : this()
+        public SimplerTextPadder(String text, String padChar = null) : this()
         {
             Text = text;
-            if (padWith != null)
-                PadWith = padWith;
+            if (padChar != null)
+                PadChar = padChar;
         }
 
         /// <summary>
@@ -61,7 +61,7 @@ namespace Simpler.Net.Text
                 padRight = (int)Math.Ceiling((Double)padRight / 2);
             }
 
-            return PadWith.Repeat(padLeft) + Text + PadWith.Repeat(padRight);
+            return PadChar.Repeat(padLeft) + Text + PadChar.Repeat(padRight);
         }
 
         #region Backing fields
