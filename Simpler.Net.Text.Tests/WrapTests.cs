@@ -48,12 +48,28 @@ three lines.";
         public void FullLength_DoesntWrap()
         {
             // Arrange
-            const Int32 length = 5;
-            var input = '-'.Repeat(length);
+            const Int32 length = 80;
+            var input = '-'.Repeat(length) + Environment.NewLine + '-'.Repeat(length);
             var expect = input;
 
             // Act
             var result = new SimplerTextWrapper(input, input.Length).GetWrappedText();
+
+            // Assert
+            Assert.AreEqual(expect, result);
+        }
+
+        [TestMethod]
+        public void SpacePaddedLines_WrapCorrectly()
+        {
+            // Arrange
+            var input = @" Line1
+
+ Line2";
+            var expect = input;
+
+            // Art
+            var result = new SimplerTextWrapper(input, 6).GetWrappedText();
 
             // Assert
             Assert.AreEqual(expect, result);

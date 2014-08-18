@@ -46,7 +46,7 @@ namespace Simpler.Net.Text
                     if (chr == ' ' || (a > 0 && length == 0))
                     {
                         // Check if the line ends
-                        if (length == 0)
+                        if (a > 0 && length == 0)
                         {
                             yield return line.ToString();
                             line = new StringBuilder(word.ToString().TrimStart(' '));
@@ -73,7 +73,8 @@ namespace Simpler.Net.Text
         /// <returns></returns>
         public virtual String GetWrappedText()
         {
-            return String.Join(Environment.NewLine, GetWrappedLines());
+            var lines = GetWrappedLines();
+            return String.Join(Environment.NewLine, lines);
         }
     }
 }
