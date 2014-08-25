@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>Simpler.Net.Html</id>
+        <version>0.2.0</version>
+        <title>Simpler.Net.Html</title>
+        <authors>Modus Operandi</authors>
+        <licenseUrl>https://github.com/modo-lv/Simpler.Net/blob/master/Simpler.Net/LICENSE</licenseUrl>
+        <projectUrl>https://github.com/modo-lv/Simpler.Net/tree/master/Simpler.Net.Html</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Useful utilites and classes for dealing with HTML.</description>
+        <tags>c# .net simpler html</tags>
+    </metadata>
+    <files>
+        <file src="C:\home\martin\dev\misc\Simpler.Net\Simpler.Net.Html\bin\Release\Simpler.Net.Html.dll" target="lib\net40\Simpler.Net.Html.dll" />
+    </files>
+</package>
