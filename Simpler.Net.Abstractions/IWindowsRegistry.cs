@@ -34,6 +34,11 @@ namespace Simpler.Net.Abstractions
 		RegistryKey Users { get; }
 
 		/// <summary>
+		/// See <see cref="Registry.LocalMachine"/>.
+		/// </summary>
+		RegistryKey LocalMachine { get; }
+
+		/// <summary>
 		/// See <see cref="Registry.GetValue"/>.
 		/// </summary>
 		Object GetValue(String keyName, String valueName, Object defaultValue);
