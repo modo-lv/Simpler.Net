@@ -9,35 +9,35 @@ namespace Simpler.Net.Abstractions
 	/// </summary>
 	public class WindowsRegistry : IWindowsRegistry
 	{
-		public RegistryKey ClassesRoot => Registry.ClassesRoot;
+		public virtual RegistryKey ClassesRoot => Registry.ClassesRoot;
 
-		public RegistryKey CurrentConfig => Registry.CurrentConfig;
+		public virtual RegistryKey CurrentConfig => Registry.CurrentConfig;
 
-		public RegistryKey CurrentUser => Registry.CurrentUser;
+		public virtual RegistryKey CurrentUser => Registry.CurrentUser;
 
 		[ObsoleteAttribute("The DynData registry key only works on Win9x, which is no longer supported by the CLR.  On NT-based operating systems, use the PerformanceData registry key instead.")]
-		public RegistryKey DynData => Registry.DynData;
+		public virtual RegistryKey DynData => Registry.DynData;
 
-		public RegistryKey LocalMachine => Registry.LocalMachine;
+		public virtual RegistryKey LocalMachine => Registry.LocalMachine;
 
-		public RegistryKey PerformanceData => Registry.PerformanceData;
+		public virtual RegistryKey PerformanceData => Registry.PerformanceData;
 
-		public RegistryKey Users => Registry.Users;
+		public virtual RegistryKey Users => Registry.Users;
 
 
-		public Object GetValue(String keyName, String valueName, Object defaultValue)
+		public virtual Object GetValue(String keyName, String valueName, Object defaultValue)
 		{
 			return Registry.GetValue(keyName, valueName, defaultValue);
 		}
 
 
-		public void SetValue(String keyName, String valueName, Object value)
+		public virtual void SetValue(String keyName, String valueName, Object value)
 		{
 			Registry.SetValue(keyName, valueName, value);
 		}
 
 
-		public void SetValue(String keyName, String valueName, Object value, RegistryValueKind valueKind)
+		public virtual void SetValue(String keyName, String valueName, Object value, RegistryValueKind valueKind)
 		{
 			Registry.SetValue(keyName, valueName, value, valueKind);
 		}
