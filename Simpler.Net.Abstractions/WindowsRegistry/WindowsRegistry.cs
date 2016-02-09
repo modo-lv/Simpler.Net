@@ -1,10 +1,10 @@
 ﻿using System;
 using Microsoft.Win32;
 
-namespace Simpler.Net.Abstractions
+namespace Simpler.Net.Abstractions.WindowsRegistry
 {
 	/// <summary>
-	/// Concrete implementation for <see cref="IWindowsRegistry"/>, forwarding calls to
+	/// Concrete implementation for <see cref="Simpler.Net.Abstractions.WindowsRegistry.IWindowsRegistry"/>, forwarding calls to
 	/// to static <see cref="Registry"/> fields and methods.
 	/// </summary>
 	public class WindowsRegistry : IWindowsRegistry
@@ -27,7 +27,7 @@ namespace Simpler.Net.Abstractions
 		/// <summary>
 		/// See <see cref="Registry.DynData"/>.
 		/// </summary>
-		[ObsoleteAttribute("The DynData registry key only works on Win9x, which is no longer supported by the CLR.  On NT-based operating systems, use the PerformanceData registry key instead.")]
+		[Obsolete("The DynData registry key only works on Win9x, which is no longer supported by the CLR.  On NT-based operating systems, use the PerformanceData registry key instead.")]
 		public virtual RegistryKey DynData => Registry.DynData;
 
 		/// <summary>

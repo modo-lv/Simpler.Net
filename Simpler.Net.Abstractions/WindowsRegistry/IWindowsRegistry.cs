@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.Win32;
 
-namespace Simpler.Net.Abstractions
+namespace Simpler.Net.Abstractions.WindowsRegistry
 {
 	/// <summary>
 	/// Abstraction interface for <see cref="Registry"/>.
