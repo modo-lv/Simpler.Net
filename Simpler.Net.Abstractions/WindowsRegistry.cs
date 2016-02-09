@@ -18,6 +18,8 @@ namespace Simpler.Net.Abstractions
 		[ObsoleteAttribute("The DynData registry key only works on Win9x, which is no longer supported by the CLR.  On NT-based operating systems, use the PerformanceData registry key instead.")]
 		public RegistryKey DynData => Registry.DynData;
 
+		public RegistryKey LocalMachine => Registry.LocalMachine;
+
 		public RegistryKey PerformanceData => Registry.PerformanceData;
 
 		public RegistryKey Users => Registry.Users;
