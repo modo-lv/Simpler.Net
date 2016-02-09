@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>Simpler.Net.Abstractions</id>
+        <version>0.1</version>
+        <title>Simpler.Net.Abstractions</title>
+        <authors>Modus Operandi (MoDo.lv)</authors>
+        <licenseUrl>https://github.com/modo-lv/Simpler.Net/blob/master/Simpler.Net.Abstractions/LICENSE</licenseUrl>
+        <projectUrl>https://github.com/modo-lv/Simpler.Net/tree/master/Simpler.Net.Abstractions</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Abstraction classes for instance-based, unit-testable way to use static system functions, such as Windows Registry management.</description>
+        <tags>c# .net simpler abstractions</tags>
+    </metadata>
+    <files>
+        <file src="..\Simpler.Net.Abstractions\bin\Release\Simpler.Net.Abstractions.dll" target="lib\net20\Simpler.Net.Abstractions.dll" />
+    </files>
+</package>
