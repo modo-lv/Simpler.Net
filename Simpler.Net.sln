@@ -25,6 +25,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simpler.Net.Html.Tests", "S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simpler.Net.Abstractions", "Simpler.Net.Abstractions\Simpler.Net.Abstractions.csproj", "{7DD9DC06-C5E8-4A73-B1E9-F6C60C54D83F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simpler.Net.Time", "Simpler.Net.Time\Simpler.Net.Time.csproj", "{C882D97A-24E7-45B8-9C60-D83BD41DB973}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simpler.Net.Time.Tests", "Simpler.Net.Time.Tests\Simpler.Net.Time.Tests.csproj", "{0CDDAE1F-53E9-414F-95C6-B5321E571227}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +79,14 @@ Global
 		{7DD9DC06-C5E8-4A73-B1E9-F6C60C54D83F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7DD9DC06-C5E8-4A73-B1E9-F6C60C54D83F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7DD9DC06-C5E8-4A73-B1E9-F6C60C54D83F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C882D97A-24E7-45B8-9C60-D83BD41DB973}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C882D97A-24E7-45B8-9C60-D83BD41DB973}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C882D97A-24E7-45B8-9C60-D83BD41DB973}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C882D97A-24E7-45B8-9C60-D83BD41DB973}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CDDAE1F-53E9-414F-95C6-B5321E571227}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CDDAE1F-53E9-414F-95C6-B5321E571227}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CDDAE1F-53E9-414F-95C6-B5321E571227}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CDDAE1F-53E9-414F-95C6-B5321E571227}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

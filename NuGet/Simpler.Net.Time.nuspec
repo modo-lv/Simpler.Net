@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>Simpler.Net.Time</id>
+        <version>0.0.1.2</version>
+        <title>Simpler.Net.Time</title>
+        <authors>Modus Operandi</authors>
+        <licenseUrl>https://github.com/modo-lv/Simpler.Net/blob/master/Simpler.Net/LICENSE</licenseUrl>
+        <projectUrl>https://github.com/modo-lv/Simpler.Net/tree/master/Simpler.Net.Time</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Miscellaneous utilities for working with dates and times.</description>
+        <tags>c# .net simpler time date datetime timestamp</tags>
+    </metadata>
+    <files>
+        <file src="C:\home\martin\dev\misc\Simpler.Net\Simpler.Net.Time\bin\Release\Simpler.Net.Time.dll" target="lib\net40\Simpler.Net.Time.dll" />
+    </files>
+</package>
