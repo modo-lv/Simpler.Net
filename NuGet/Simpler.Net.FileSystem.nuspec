@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>Simpler.Net.FileSystem</id>
-        <version>0.4.5.2</version>
+        <version>0.4.5.3</version>
         <title>Simpler.Net.FileSystem</title>
         <authors>Modus Operandi</authors>
         <licenseUrl>https://github.com/modo-lv/Simpler.Net/blob/master/Simpler.Net.FileSystem/LICENSE</licenseUrl>
@@ -11,7 +11,12 @@
         <description>Utilities and convenience functions for working with files and directories.</description>
         <tags>.net c# filesystem simpler</tags>
         <dependencies>
-            <dependency id="Simpler.Net" version="0.2.0.1" />
+					<group>
+            <dependency id="Simpler.Net" version="0.1.0" />
+            </group>
+            <group targetFramework="netstandard1.3">
+							<dependency id="Simpler.NET" version="0.2.0.1" />
+            </group>
         </dependencies>
     </metadata>
     <files>
