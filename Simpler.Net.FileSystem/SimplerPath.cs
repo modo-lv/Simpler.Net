@@ -89,10 +89,10 @@ namespace Simpler.Net.FileSystem
             var altSep = "" + Path.AltDirectorySeparatorChar + Path.AltDirectorySeparatorChar;
 
             while (path.Contains(sep))
-                path = path.Replace(sep, Path.DirectorySeparatorChar.ToString(CultureInfo.InvariantCulture));
+                path = path.Replace(sep, Path.DirectorySeparatorChar.ToString());
 
             while (path.Contains(altSep))
-                path = path.Replace(altSep, Path.AltDirectorySeparatorChar.ToString(CultureInfo.InvariantCulture));
+                path = path.Replace(altSep, Path.AltDirectorySeparatorChar.ToString());
 
             return Trim(path);
         }

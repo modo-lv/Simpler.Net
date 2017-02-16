@@ -175,3 +175,5 @@ FakesAssemblies/
 
 #NuGet
 *.nupkg
+
+.vs/

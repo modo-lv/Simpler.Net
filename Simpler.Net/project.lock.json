@@ -1,0 +1,32 @@
+{
+  "version": 2,
+  "targets": {
+    ".NETFramework,Version=v3.5": {},
+    ".NETFramework,Version=v3.5/win": {}
+  },
+  "libraries": {},
+  "projectFileDependencyGroups": {
+    "": [],
+    ".NETFramework,Version=v3.5": []
+  },
+  "packageFolders": {
+    "C:\\Users\\Martin\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "restore": {
+      "projectUniqueName": "C:\\home\\martin\\dev\\misc\\Simpler.Net\\Simpler.Net\\Simpler.Net.csproj",
+      "projectName": "Simpler.Net",
+      "projectPath": "C:\\home\\martin\\dev\\misc\\Simpler.Net\\Simpler.Net\\Simpler.Net.csproj",
+      "projectJsonPath": "C:\\home\\martin\\dev\\misc\\Simpler.Net\\Simpler.Net\\project.json",
+      "projectStyle": "ProjectJson"
+    },
+    "frameworks": {
+      "net35": {}
+    },
+    "runtimes": {
+      "win": {
+        "#import": []
+      }
+    }
+  }
+}

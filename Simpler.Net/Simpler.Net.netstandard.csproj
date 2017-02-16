@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.0</TargetFramework>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <PackageId>Simpler.Net</PackageId>
+    <Version>0.2.0</Version>
+    <Authors>Modus Operandi</Authors>
+    <Company>Modus Operandi</Company>
+    <PackageLicenseUrl>https://github.com/modo-lv/Simpler.Net/blob/master/Simpler.Net/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/modo-lv/Simpler.Net/tree/master/Simpler.Net</PackageProjectUrl>
+    <Description>All sorts of miscellaneous, mostly atomic utilities, methods, workarounds and wrappers.</Description>
+    <PackageTags>c# .net simpler</PackageTags>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE;DEBUG;NETSTANDARD;NETSTANDARD1_0</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>TRACE;RELEASE;NETSTANDARD;NETSTANDARD1_0</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+
+</Project>
