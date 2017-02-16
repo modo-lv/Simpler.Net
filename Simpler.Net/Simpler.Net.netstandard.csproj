@@ -11,6 +11,8 @@
     <PackageProjectUrl>https://github.com/modo-lv/Simpler.Net/tree/master/Simpler.Net</PackageProjectUrl>
     <Description>All sorts of miscellaneous, mostly atomic utilities, methods, workarounds and wrappers.</Description>
     <PackageTags>c# .net simpler</PackageTags>
+    <AssemblyName>Simpler.Net</AssemblyName>
+    <RootNamespace>Simpler.Net</RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
