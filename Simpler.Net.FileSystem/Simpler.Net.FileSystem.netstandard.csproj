@@ -13,6 +13,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Simpler.Net.Text\Simpler.Net.Text.netstandard.csproj" />
     <ProjectReference Include="..\Simpler.Net\Simpler.Net.netstandard.csproj" />
   </ItemGroup>
 

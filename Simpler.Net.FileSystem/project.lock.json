@@ -49,11 +49,11 @@
       "frameworks": {
         "net40": {
           "projectReferences": {
-            "C:\\home\\martin\\dev\\misc\\Simpler.Net\\Simpler.Net\\Simpler.Net.csproj": {
-              "projectPath": "C:\\home\\martin\\dev\\misc\\Simpler.Net\\Simpler.Net\\Simpler.Net.csproj"
-            },
             "C:\\home\\martin\\dev\\misc\\Simpler.Net\\Simpler.Net.Text\\Simpler.Net.Text.csproj": {
               "projectPath": "C:\\home\\martin\\dev\\misc\\Simpler.Net\\Simpler.Net.Text\\Simpler.Net.Text.csproj"
+            },
+            "C:\\home\\martin\\dev\\misc\\Simpler.Net\\Simpler.Net\\Simpler.Net.csproj": {
+              "projectPath": "C:\\home\\martin\\dev\\misc\\Simpler.Net\\Simpler.Net\\Simpler.Net.csproj"
             }
           }
         }
