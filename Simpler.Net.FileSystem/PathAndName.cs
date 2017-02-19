@@ -1,52 +1,86 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-namespace Simpler.Net.FileSystem {
-    /// <summary>
-    /// A simple class for holding a file or folder's name as well
-    /// as it's containing folder (directory path).
-    /// </summary>
-    public class PathAndName {
-        public virtual String Path { get; set; }
-        public virtual String Name { get; set; }
+namespace Simpler.Net.FileSystem
+{
+	/// <summary>
+	/// A simple class for holding a file or folder's name as well
+	/// as it's containing folder (directory path).
+	/// </summary>
+	public class PathAndName
+	{
+		/// <summary>
+		/// File or folder's path (without filename).
+		/// </summary>
+		public virtual String Path { get; set; }
 
-        public PathAndName() {}
+		/// <summary>
+		/// File or folder's name (including extension, if any).
+		/// </summary>
+		public virtual String Name { get; set; }
 
-        public PathAndName(string path, string name)
-        {
-            Path = path;
-            Name = name;
-        }
 
-        public override bool Equals(object obj)
-        {
-            var other = obj as PathAndName;
+		/// <summary>
+		/// Parameterless constructor.
+		/// </summary>
+		public PathAndName()
+		{
+		}
 
-            if (ReferenceEquals(other, null))
-                return false;
+		/// <summary>
+		/// Constructor.
+		/// </summary>
+		/// <param name="path"><see cref="Path"/></param>
+		/// <param name="name"><see cref="Name"/></param>
+		public PathAndName(String path, String name)
+		{
+			this.Path = path;
+			this.Name = name;
+		}
 
-            return ReferenceEquals(this, obj) || Equals(other);
-        }
-        protected bool Equals(PathAndName other)
-        {
-            return string.Equals(Path, other.Path) && string.Equals(Name, other.Name);
-        }
 
-        public override int GetHashCode()
-        {
-            return (Path + "/" + Name).GetHashCode();
-        }
+		/// <summary>
+		/// See <see cref="Equals(Object)"/>.
+		/// </summary>
+		protected virtual Boolean Equals(PathAndName other)
+			=> String.Equals(this.Path.Trim(), other?.Path.Trim()) && String.Equals(this.Name.Trim(), other?.Name.Trim());
 
-        public static Boolean operator ==(PathAndName one, PathAndName two)
-        {
-            return one != null && one.Equals(two);
-        }
+		/// <summary>
+		/// Check if the full path name represented by the current properties
+		/// of one <see cref="PathAndName"/> are the same as that of another.
+		/// </summary>
+		/// <remarks>
+		/// The comparison is case-sensitive and only trims witespace.
+		/// "a/b" and "a//b" will NOT be considered equal.
+		/// </remarks>
+		/// <param name="other"><see cref="PathAndName"/> object to compare the this one to.</param>
+		/// <returns><c>true</c> if the paths are the same, <c>false</c> otherwise.</returns>
+		public override Boolean Equals(Object other)
+		{
+			if (Object.ReferenceEquals(null, other)) return false;
+			if (Object.ReferenceEquals(this, other)) return true;
+			if (other.GetType() != this.GetType()) return false;
 
-        public static bool operator !=(PathAndName one, PathAndName two)
-        {
-            return !(one == two);
-        }
-    }
+			return this.Equals((PathAndName) other);
+		}
+
+		/// <inheritdoc />
+		public override Int32 GetHashCode()
+			=> (this.Path + "/" + this.Name).GetHashCode();
+
+		/// <summary>
+		/// Operator version of <see cref="Equals(PathAndName)"/>.
+		/// </summary>
+		public static Boolean operator ==(PathAndName one, PathAndName two)
+		{
+			return one.IfNotNull(o => o.Equals(two));
+		}
+
+		/// <summary>
+		/// Operator version of !<see cref="Equals(PathAndName)"/>.
+		/// </summary>
+		public static Boolean operator !=(PathAndName one, PathAndName two)
+		{
+			return !(one == two);
+		}
+	}
 }

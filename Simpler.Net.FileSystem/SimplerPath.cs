@@ -1,119 +1,127 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+using Simpler.Net.Text;
 
 namespace Simpler.Net.FileSystem
 {
-    /// <summary>
-    /// Functions and methods that work with file & folder paths.
-    /// </summary>
-    public class SimplerPath
-    {
-        /// <summary>
-        /// Combines parts of a path into a single path.
-        /// Works the same as <see cref="Path.Combine(String, String)"/>,
-        /// with one fix: if a path part starts with a [back]slash, it will
-        /// *not* be returned as the root path, discarding the previous parts.
-        /// However, if a path part starts with a drive letter ("C:"), it
-        /// *will* be returned as the root path and any paths before it will
-        /// be discarded.
-        /// 
-        /// This method also trims any multiple slashes/backslashes to a single one.
-        /// 
-        /// Also, this method takes any number of parts, instead of just up to 4.
-        /// </summary>
-        /// <param name="pathParts">Parts of the path to combine. For example, "c:\\X", "\\ABC\\", "def\\"</param>
-        /// <returns>Combined path. For example, @"C:\X\ABC\def\"</returns>
-        public static String Combine(IEnumerable<String> pathParts)
-        {
-            return !pathParts.Any()
-                ? String.Empty
-                : pathParts.Select(
-                    p => {
-                        if (p == null)
-                            return String.Empty;
-                        p = Clean(p);
-                        // Drive letter
-                        if (Regex.Match(p, @"^[a-z]:$", RegexOptions.IgnoreCase).Success)
-                            return p + Path.DirectorySeparatorChar;
-                        return p;
-                    }).Aggregate(Path.Combine);
-        }
+	/// <summary>
+	/// Functions and methods that work with file & folder paths.
+	/// </summary>
+	public class SimplerPath
+	{
 
-        /// <summary>
-        /// An overload for <see cref="SimplerPath.Combine(IEnumerable&lt;String&gt;)"/> that allows
-        /// for passing path parts as arguments instead of an IEnumerable
-        /// </summary>
-        /// <param name="pathParts"></param>
-        /// <returns></returns>
-        public static String Combine(params String[] pathParts)
-        {
-            return Combine((IEnumerable<String>)pathParts);
-        }
+		/// <summary>
+		/// Combine parts of a path into a single path.
+		/// </summary>
+		/// <remarks>
+		/// All separators are replaced by <paramref name="separator"/> and duplicates removed.
+		/// Unlike <see cref="Path.Combine(String,String)"/> and its overloads, this method makes
+		/// no validity checks and treats Windows drive letters like any other path (i.e.,
+		/// <c>@"C:"</c> and <c>@"d"</c> will combine to <c>@"C:\d"</c>, not <c>@"C:d"</c>).
+		/// </remarks>
+		/// <param name="pathParts">Paths to combine.</param>
+		/// <param name="separator">Separator to use. If <c>null</c>, OS default will be used.</param>
+		/// <returns>Combined path.</returns>
+		public static String Combine(IEnumerable<String> pathParts, String separator = null)
+		{
+			// ReSharper disable once SuggestVarOrType_Elsewhere
+			var array = pathParts as String[] ?? pathParts.IfNotNull(pp => pp.ToArray());
+			if (array == null || !array.Any())
+				return String.Empty;
 
-        /// <summary>
-        /// Syntactic sugar for splitting a path into its constituent parts.
-        /// </summary>
-        /// <param name="path">Path to split.</param>
-        /// <returns>A list of parts making up the path.</returns>
-        public static IList<String> Split(String path)
-        {
-            return
-                path.Split(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar)
-                    .Select(Trim)
-                    .Where(p => !String.IsNullOrWhiteSpace(p)) // Remove empty elements
-                    .ToList();
-        }
+			separator = separator ?? Path.DirectorySeparatorChar.ToString();
 
-        /// <summary>
-        /// Trim directory separator characters off a path.
-        /// </summary>
-        /// <param name="path"></param>
-        /// <returns></returns>
-        public static String Trim(String path)
-        {
-            return path.Trim(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
-        }
+			var result = String.Join(separator, array);
 
-        /// <summary>
-        /// Trim and remove duplicate separator characters from a path.
-        /// </summary>
-        /// <param name="path"></param>
-        /// <returns></returns>
-        public static String Clean(String path)
-        {
-            var sep = "" + Path.DirectorySeparatorChar + Path.DirectorySeparatorChar;
-            var altSep = "" + Path.AltDirectorySeparatorChar + Path.AltDirectorySeparatorChar;
+			result = SimplerPath.Clean(result, separator);
 
-            while (path.Contains(sep))
-                path = path.Replace(sep, Path.DirectorySeparatorChar.ToString());
+			return result;
+		}
 
-            while (path.Contains(altSep))
-                path = path.Replace(altSep, Path.AltDirectorySeparatorChar.ToString());
 
-            return Trim(path);
-        }
+		/// <summary>
+		/// An overload for <see cref="Combine(IEnumerable{String},String)"/> that allows
+		/// for passing path parts as arguments instead of an <see cref="IEnumerable{T}"/>.
+		/// </summary>
+		/// <param name="pathParts"></param>
+		/// <returns></returns>
+		public static String Combine(params String[] pathParts)
+			=> Combine((IEnumerable<String>) pathParts);
 
-        /// <summary>
-        /// Separate the last part of a path (file or folder name) from
-        /// a given path and return it along with the remaining path.
-        /// </summary>
-        /// <param name="path"></param>
-        /// <returns>Value1 is path, </returns>
-        public static PathAndName SplitPathAndName(String path)
-        {
-            var parts = Split(path);
-            if (!parts.Any())
-                throw new Exception("Cannot split an empty path!");
-            var name = parts.Last();
-            parts.RemoveAt(parts.Count - 1);
-            return new PathAndName {
-                Path = Combine(parts),
-                Name = name
-            };
-        }
-    }
+
+		/// <summary>
+		/// Syntactic sugar for splitting a path into its constituent parts.
+		/// </summary>
+		/// <param name="path">Path to split.</param>
+		/// <param name="separators">Separators to use. If <c>null</c>, UNIX and Windows defaults
+		///   (slash and backslash) will be used.</param>
+		/// <returns>A list of parts making up the path.</returns>
+		public static String[] Split(String path, IEnumerable<String> separators = null)
+		{
+			if (separators == null) {
+				separators = new[] {
+					Path.DirectorySeparatorChar.ToString(),
+					Path.AltDirectorySeparatorChar.ToString()
+				};
+			}
+
+			return path.Split(separators.ToArray(), StringSplitOptions.RemoveEmptyEntries);
+		}
+
+
+		/// <summary>
+		/// Syntactic sugar for trimming path separators from the beginning and/or end of a path.
+		/// </summary>
+		/// <param name="path">Path to trim separators off of.</param>
+		/// <param name="trimMode"><see cref="SimplerTrimMode"/>.</param>
+		/// <param name="separators">Separators to trim. If <c>null</c>, default Windows and UNIX separators will be trimmed.</param>
+		/// <returns></returns>
+		public static String Trim(String path, SimplerTrimMode trimMode = SimplerTrimMode.End, IEnumerable<Char> separators = null)
+		{
+			if (separators == null) {
+				separators = new[] {Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar};
+			}
+			return path.SimplerTrim(trimMode, separators);
+		}
+
+		/// <summary>
+		/// Remove duplicate separator characters from a path.
+		/// </summary>
+		/// <param name="path"></param>
+		/// <param name="separator"></param>
+		/// <returns></returns>
+		public static String Clean(String path, String separator = null)
+		{
+			if (separator == null) {
+				separator = $"{Path.DirectorySeparatorChar}";
+			}
+
+			var result = Regex.Replace(path, @"(?:/|\\)+", separator, RegexOptions.Compiled);
+
+			return result;
+		}
+
+		/// <summary>
+		/// Separate the last part of a path (file or folder name) from
+		/// a given path and return it along with the remaining path.
+		/// </summary>
+		/// <param name="path"></param>
+		/// <returns>Value1 is path, </returns>
+		public static PathAndName SplitPathAndName(String path)
+		{
+			var parts = Split(path).ToList();
+			if (!parts.Any())
+				throw new Exception("Cannot split an empty path!");
+			var name = parts.Last();
+			parts.RemoveAt(parts.Count - 1);
+			return new PathAndName
+			{
+				Path = Combine(parts),
+				Name = name
+			};
+		}
+	}
 }

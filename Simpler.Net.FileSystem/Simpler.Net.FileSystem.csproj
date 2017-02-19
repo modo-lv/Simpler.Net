@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>Simpler.Net.FileSystem.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -31,6 +32,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Release\Simpler.Net.FileSystem.XML</DocumentationFile>
+    <CodeAnalysisRuleSet>Simpler.Net.FileSystem.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -48,6 +50,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Simpler.Net.Text\Simpler.Net.Text.csproj">
+      <Project>{4721D1EE-1DD9-45B5-858F-53D046E23FE4}</Project>
+      <Name>Simpler.Net.Text</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Simpler.Net\Simpler.Net.csproj">
       <Project>{06b0df96-b013-411d-bab5-996ddab5e3b0}</Project>
       <Name>Simpler.Net</Name>
@@ -55,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="project.json" />
+    <None Include="Simpler.Net.FileSystem.ruleset" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

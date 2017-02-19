@@ -59,6 +59,10 @@
       <Project>{1A557205-2F66-441A-AE73-DA2CA3CDFD3C}</Project>
       <Name>Simpler.Net.FileSystem</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Simpler.Net.Text\Simpler.Net.Text.csproj">
+      <Project>{4721D1EE-1DD9-45B5-858F-53D046E23FE4}</Project>
+      <Name>Simpler.Net.Text</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Simpler.Net\Simpler.Net.csproj">
       <Project>{06B0DF96-B013-411D-BAB5-996DDAB5E3B0}</Project>
       <Name>Simpler.Net</Name>

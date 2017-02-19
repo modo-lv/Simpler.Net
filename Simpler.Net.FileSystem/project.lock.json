@@ -5,12 +5,18 @@
       "Simpler.Net/1.0.0": {
         "type": "project",
         "framework": ".NETFramework,Version=v3.5"
+      },
+      "Simpler.Net.Text/1.0.0": {
+        "type": "project"
       }
     },
     ".NETFramework,Version=v4.0/win": {
       "Simpler.Net/1.0.0": {
         "type": "project",
         "framework": ".NETFramework,Version=v3.5"
+      },
+      "Simpler.Net.Text/1.0.0": {
+        "type": "project"
       }
     }
   },
@@ -19,6 +25,11 @@
       "type": "project",
       "path": "../Simpler.Net/project.json",
       "msbuildProject": "../Simpler.Net/Simpler.Net.csproj"
+    },
+    "Simpler.Net.Text/1.0.0": {
+      "type": "project",
+      "path": "../Simpler.Net.Text/Simpler.Net.Text.csproj",
+      "msbuildProject": "../Simpler.Net.Text/Simpler.Net.Text.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -40,6 +51,9 @@
           "projectReferences": {
             "C:\\home\\martin\\dev\\misc\\Simpler.Net\\Simpler.Net\\Simpler.Net.csproj": {
               "projectPath": "C:\\home\\martin\\dev\\misc\\Simpler.Net\\Simpler.Net\\Simpler.Net.csproj"
+            },
+            "C:\\home\\martin\\dev\\misc\\Simpler.Net\\Simpler.Net.Text\\Simpler.Net.Text.csproj": {
+              "projectPath": "C:\\home\\martin\\dev\\misc\\Simpler.Net\\Simpler.Net.Text\\Simpler.Net.Text.csproj"
             }
           }
         }

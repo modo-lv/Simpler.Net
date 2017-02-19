@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>Simpler.Net.FileSystem</id>
-        <version>0.4.5.3</version>
+        <version>0.4.5.5</version>
         <title>Simpler.Net.FileSystem</title>
         <authors>Modus Operandi</authors>
         <licenseUrl>https://github.com/modo-lv/Simpler.Net/blob/master/Simpler.Net.FileSystem/LICENSE</licenseUrl>
@@ -13,15 +13,17 @@
         <dependencies>
 					<group>
             <dependency id="Simpler.Net" version="0.1.0" />
-            </group>
-            <group targetFramework="netstandard1.3">
-							<dependency id="Simpler.NET" version="0.2.0.1" />
-            </group>
+          </group>
+          <group targetFramework="netstandard1.3">
+						<dependency id="Simpler.NET" version="0.2.0.1" />
+          </group>
         </dependencies>
     </metadata>
     <files>
+        <file src="..\Simpler.Net.FileSystem\bin\Release\Simpler.Net.FileSystem.xml" target="lib\net40\Simpler.Net.FileSystem.xml" />
         <file src="..\Simpler.Net.FileSystem\bin\Release\Simpler.Net.FileSystem.dll" target="lib\net40\Simpler.Net.FileSystem.dll" />
         <file src="..\Simpler.Net.FileSystem\bin\Release\netstandard1.3\Simpler.Net.FileSystem.deps.json" target="lib\netstandard1.3\Simpler.Net.FileSystem.deps.json" />
         <file src="..\Simpler.Net.FileSystem\bin\Release\netstandard1.3\Simpler.Net.FileSystem.dll" target="lib\netstandard1.3\Simpler.Net.FileSystem.dll" />
+        <file src="..\Simpler.Net.FileSystem\bin\Release\netstandard1.3\Simpler.Net.FileSystem.xml" target="lib\netstandard1.3\Simpler.Net.FileSystem.xml" />
     </files>
 </package>

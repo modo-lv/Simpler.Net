@@ -40,9 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Extensions.cs" />
+    <Compile Include="TextExtensions.cs" />
     <Compile Include="SimplerTextPadder.cs" />
     <Compile Include="SimplerTextAlignment.cs" />
+    <Compile Include="SimplerTrimMode.cs" />
     <Compile Include="SimplerTextWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
