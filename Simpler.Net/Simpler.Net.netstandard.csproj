@@ -4,15 +4,18 @@
     <TargetFramework>netstandard1.0</TargetFramework>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <PackageId>Simpler.Net</PackageId>
-    <Version>0.2.0</Version>
-    <Authors>Modus Operandi</Authors>
-    <Company>Modus Operandi</Company>
-    <PackageLicenseUrl>https://github.com/modo-lv/Simpler.Net/blob/master/Simpler.Net/LICENSE</PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/modo-lv/Simpler.Net/tree/master/Simpler.Net</PackageProjectUrl>
-    <Description>All sorts of miscellaneous, mostly atomic utilities, methods, workarounds and wrappers.</Description>
-    <PackageTags>c# .net simpler</PackageTags>
+    <Version>0.2.0.1</Version>
+    <Authors></Authors>
+    <Company></Company>
+    <PackageLicenseUrl></PackageLicenseUrl>
+    <PackageProjectUrl></PackageProjectUrl>
+    <Description></Description>
+    <PackageTags></PackageTags>
     <AssemblyName>Simpler.Net</AssemblyName>
     <RootNamespace>Simpler.Net</RootNamespace>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+    <FileVersion>0.0.0.0</FileVersion>
+    <Product />
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

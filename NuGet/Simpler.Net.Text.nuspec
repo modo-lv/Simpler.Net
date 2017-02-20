@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>Simpler.Net.Text</id>
-        <version>0.4.3</version>
+        <version>0.4.2</version>
         <title>Simpler.Net.Text</title>
         <authors>Modus Operandi</authors>
         <licenseUrl>https://github.com/modo-lv/Simpler.Net/blob/master/Simpler.Net/LICENSE</licenseUrl>
@@ -12,10 +12,10 @@
         <tags>c# .net simpler text wrap wrapping wordwrap</tags>
     </metadata>
     <files>
-        <file src="..\Simpler.Net.Text\bin\Release\Simpler.Net.Text.dll" target="lib\net40\Simpler.Net.Text.dll" />
-         <file src="..\Simpler.Net.Text\bin\Release\netstandard1.3\Simpler.Net.Text.deps.json" target="lib\netstandard1.3\Simpler.Net.Text.deps.json" />
-        <file src="..\Simpler.Net.Text\bin\Release\netstandard1.3\Simpler.Net.Text.dll" target="lib\netstandard1.3\Simpler.Net.Text.dll" />
-        <file src="..\Simpler.Net.Text\bin\Release\netstandard1.3\Simpler.Net.Text.xml" target="lib\netstandard1.3\Simpler.Net.Text.xml" />
-
+      <file src="..\Simpler.Net.Text\bin\Release\Simpler.Net.Text.dll" target="lib\net40\Simpler.Net.Text.dll" />
+      <file src="..\Simpler.Net.Text\bin\Release\Simpler.Net.Text.xml" target="lib\net40\Simpler.Net.Text.xml" />
+      <file src="..\Simpler.Net.Text\bin\Release\netstandard1.3\Simpler.Net.Text.deps.json" target="lib\netstandard1.3\Simpler.Net.Text.deps.json" />
+      <file src="..\Simpler.Net.Text\bin\Release\netstandard1.3\Simpler.Net.Text.dll" target="lib\netstandard1.3\Simpler.Net.Text.dll" />
+      <file src="..\Simpler.Net.Text\bin\Release\netstandard1.3\Simpler.Net.Text.xml" target="lib\netstandard1.3\Simpler.Net.Text.xml" />
     </files>
 </package>
