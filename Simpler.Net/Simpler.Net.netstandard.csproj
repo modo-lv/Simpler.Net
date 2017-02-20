@@ -4,7 +4,7 @@
     <TargetFramework>netstandard1.0</TargetFramework>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <PackageId>Simpler.Net</PackageId>
-    <Version>0.2.0.1</Version>
+    <Version>0.2.0.5</Version>
     <Authors></Authors>
     <Company></Company>
     <PackageLicenseUrl></PackageLicenseUrl>
