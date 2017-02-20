@@ -21,8 +21,8 @@
         </dependencies>
     </metadata>
     <files>
-        <file src="..\Simpler.Net.FileSystem\bin\Release\Simpler.Net.FileSystem.xml" target="lib\net40\Simpler.Net.FileSystem.xml" />
-        <file src="..\Simpler.Net.FileSystem\bin\Release\Simpler.Net.FileSystem.dll" target="lib\net40\Simpler.Net.FileSystem.dll" />
+        <file src="..\Simpler.Net.FileSystem\bin\Release\net40\Simpler.Net.FileSystem.xml" target="lib\net40\Simpler.Net.FileSystem.xml" />
+        <file src="..\Simpler.Net.FileSystem\bin\Release\net40\Simpler.Net.FileSystem.dll" target="lib\net40\Simpler.Net.FileSystem.dll" />
         <file src="..\Simpler.Net.FileSystem\bin\Release\netstandard1.3\Simpler.Net.FileSystem.deps.json" target="lib\netstandard1.3\Simpler.Net.FileSystem.deps.json" />
         <file src="..\Simpler.Net.FileSystem\bin\Release\netstandard1.3\Simpler.Net.FileSystem.dll" target="lib\netstandard1.3\Simpler.Net.FileSystem.dll" />
         <file src="..\Simpler.Net.FileSystem\bin\Release\netstandard1.3\Simpler.Net.FileSystem.xml" target="lib\netstandard1.3\Simpler.Net.FileSystem.xml" />

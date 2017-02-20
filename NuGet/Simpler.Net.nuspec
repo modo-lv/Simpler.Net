@@ -12,8 +12,8 @@
         <tags>c# .net simpler</tags>
     </metadata>
     <files>
-        <file src="..\Simpler.Net\bin\Release\Simpler.Net.dll" target="lib\net35\Simpler.Net.dll" />
-        <file src="..\Simpler.Net\bin\Release\Simpler.Net.xml" target="lib\net35\Simpler.Net.xml" />
+        <file src="..\Simpler.Net\bin\Release\net35\Simpler.Net.dll" target="lib\net35\Simpler.Net.dll" />
+        <file src="..\Simpler.Net\bin\Release\net35\Simpler.Net.xml" target="lib\net35\Simpler.Net.xml" />
         <file src="..\Simpler.Net\bin\Release\netstandard1.0\Simpler.Net.deps.json" target="lib\netstandard1.0\Simpler.Net.deps.json" />
         <file src="..\Simpler.Net\bin\Release\netstandard1.0\Simpler.Net.dll" target="lib\netstandard1.0\Simpler.Net.dll" />
         <file src="..\Simpler.Net\bin\Release\netstandard1.0\Simpler.Net.xml" target="lib\netstandard1.0\Simpler.Net.xml" />
