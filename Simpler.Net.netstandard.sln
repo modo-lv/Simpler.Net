@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simpler.Net.FileSystem.nets
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simpler.Net.Text.netstandard", "Simpler.Net.Text\Simpler.Net.Text.netstandard.csproj", "{4B1D8FEE-375E-477F-A7C1-1B82D7FC2319}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simpler.Net.Http.dotnetstandard", "D:\home\martin\dev\misc\Simpler.Net\Simpler.Net.Http\Simpler.Net.Http.dotnetstandard.csproj", "{558E9DBF-7190-480C-B1BE-6C96EAC310F9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,18 @@ Global
 		{4B1D8FEE-375E-477F-A7C1-1B82D7FC2319}.Release|x64.Build.0 = Release|x64
 		{4B1D8FEE-375E-477F-A7C1-1B82D7FC2319}.Release|x86.ActiveCfg = Release|x86
 		{4B1D8FEE-375E-477F-A7C1-1B82D7FC2319}.Release|x86.Build.0 = Release|x86
+		{558E9DBF-7190-480C-B1BE-6C96EAC310F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{558E9DBF-7190-480C-B1BE-6C96EAC310F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{558E9DBF-7190-480C-B1BE-6C96EAC310F9}.Debug|x64.ActiveCfg = Debug|x64
+		{558E9DBF-7190-480C-B1BE-6C96EAC310F9}.Debug|x64.Build.0 = Debug|x64
+		{558E9DBF-7190-480C-B1BE-6C96EAC310F9}.Debug|x86.ActiveCfg = Debug|x86
+		{558E9DBF-7190-480C-B1BE-6C96EAC310F9}.Debug|x86.Build.0 = Debug|x86
+		{558E9DBF-7190-480C-B1BE-6C96EAC310F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{558E9DBF-7190-480C-B1BE-6C96EAC310F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{558E9DBF-7190-480C-B1BE-6C96EAC310F9}.Release|x64.ActiveCfg = Release|x64
+		{558E9DBF-7190-480C-B1BE-6C96EAC310F9}.Release|x64.Build.0 = Release|x64
+		{558E9DBF-7190-480C-B1BE-6C96EAC310F9}.Release|x86.ActiveCfg = Release|x86
+		{558E9DBF-7190-480C-B1BE-6C96EAC310F9}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

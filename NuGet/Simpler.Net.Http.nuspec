@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>Simpler.Net.Http</id>
+        <version>0.0.1</version>
+        <title>Simpler.Net.Http</title>
+        <authors>Modus Operandi</authors>
+        <licenseUrl>https://github.com/modo-lv/Simpler.Net/blob/master/Simpler.Net.Http/LICENSE</licenseUrl>
+        <projectUrl>https://github.com/modo-lv/Simpler.Net/tree/master/Simpler.Net.Http</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Utility stuff for HTTP.</description>
+        <tags>c# .net simpler http</tags>
+    </metadata>
+    <files>
+        <file src="..\Simpler.Net.Http\bin\Release\net20\Simpler.Net.Http.dll" target="lib\net20\Simpler.Net.Http.dll" />
+        <file src="..\Simpler.Net.Http\bin\Release\net20\Simpler.Net.Http.xml" target="lib\net20\Simpler.Net.Http.xml" />
+        <file src="..\Simpler.Net.Http\bin\Release\netstandard1.0\Simpler.Net.Http.deps.json" target="lib\netstandard1.0\Simpler.Net.Http.deps.json" />
+        <file src="..\Simpler.Net.Http\bin\Release\netstandard1.0\Simpler.Net.Http.dll" target="lib\netstandard1.0\Simpler.Net.Http.dll" />
+        <file src="..\Simpler.Net.Http\bin\Release\netstandard1.0\Simpler.Net.Http.xml" target="lib\netstandard1.0\Simpler.Net.Http.xml" />
+    </files>
+</package>
