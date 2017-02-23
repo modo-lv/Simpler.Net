@@ -5,7 +5,7 @@ namespace Simpler.Net.Http
 	/// <summary>
 	/// Shorthands for commonly used MIME types.
 	/// </summary>
-	public static class ShortMimeTypes
+	public static class CommonMimeTypes
 	{
 		public const String Binary = "application/octet-stream";
 		public const String Jpeg = "image/jpeg";
