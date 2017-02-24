@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>Simpler.Net.Time</id>
-        <version>0.0.2</version>
+        <version>0.1.0</version>
         <title>Simpler.Net.Time</title>
         <authors>Modus Operandi</authors>
         <licenseUrl>https://github.com/modo-lv/Simpler.Net/blob/master/Simpler.Net/LICENSE</licenseUrl>
@@ -10,10 +10,16 @@
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Miscellaneous utilities for working with dates and times.</description>
         <tags>c# .net simpler time date datetime timestamp</tags>
+        <dependencies>
+					<group targetFramework="net40">
+          </group>
+          <group targetFramework="netstandard1.3">
+          </group>
+        </dependencies>
     </metadata>
     <files>
-        <file src="..\Simpler.Net.Time\bin\Release\net35\Simpler.Net.Time.dll" target="lib\net35\Simpler.Net.Time.dll" />
-        <file src="..\Simpler.Net.Time\bin\Release\net35\Simpler.Net.Time.xml" target="lib\net35\Simpler.Net.Time.xml" />
+        <file src="..\Simpler.Net.Time\bin\Release\net40\Simpler.Net.Time.dll" target="lib\net40\Simpler.Net.Time.dll" />
+        <file src="..\Simpler.Net.Time\bin\Release\net40\Simpler.Net.Time.xml" target="lib\net40\Simpler.Net.Time.xml" />
         
         <file src="..\Simpler.Net.Time\bin\Release\netstandard1.0\Simpler.Net.Time.deps.json" target="lib\netstandard1.0\Simpler.Net.Time.deps.json" />
         <file src="..\Simpler.Net.Time\bin\Release\netstandard1.0\Simpler.Net.Time.dll" target="lib\netstandard1.0\Simpler.Net.Time.dll" />
