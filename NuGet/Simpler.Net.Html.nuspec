@@ -1,17 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
     <metadata>
         <id>Simpler.Net.Html</id>
-        <version>0.2.0</version>
+        <version>0.3.1.1</version>
         <title>Simpler.Net.Html</title>
         <authors>Modus Operandi</authors>
         <licenseUrl>https://github.com/modo-lv/Simpler.Net/blob/master/Simpler.Net/LICENSE</licenseUrl>
         <projectUrl>https://github.com/modo-lv/Simpler.Net/tree/master/Simpler.Net.Html</projectUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Useful utilites and classes for dealing with HTML.</description>
+        <releaseNotes>Since version 0.3.0, only supports .NET Standard projects. There are other packages for .NET Framework projects.</releaseNotes>
         <tags>c# .net simpler html</tags>
+        <dependencies>
+            <group targetFramework=".NETStandard1.0">
+                <dependency id="Microsoft.AspNetCore.Html.Abstractions" version="1.1.1" />
+            </group>
+        </dependencies>
     </metadata>
     <files>
-        <file src="C:\home\martin\dev\misc\Simpler.Net\Simpler.Net.Html\bin\Release\Simpler.Net.Html.dll" target="lib\net40\Simpler.Net.Html.dll" />
+        <file src="..\Simpler.Net.Html\bin\release\netstandard1.0\Simpler.Net.Html.dll" target="lib\netstandard1.0\Simpler.Net.Html.dll" />
+        <file src="..\Simpler.Net.Html\bin\release\netstandard1.0\Simpler.Net.Html.xml" target="lib\netstandard1.0\Simpler.Net.Html.xml" />
     </files>
 </package>

@@ -1,95 +1,202 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Text;
-using System.Web;
+using System.Text.Encodings.Web;
+using Microsoft.AspNetCore.Html;
 
 namespace Simpler.Net.Html
 {
-    /// <summary>
-    /// HTML tag.
-    /// </summary>
-    public class SimplerHtmlTag {
-        /// <summary>
-        /// Tag name.
-        /// </summary>
-        public virtual String TagName { get; set; }
+	/// <summary>
+	/// A class for manipulating HTML tags.
+	/// </summary>
+	public class SimplerHtmlTag : IHtmlContent
+	{
+		/// <summary>
+		/// List of tags that do not have a closing tag.
+		/// </summary>
+		public static readonly String[] VoidTags =
+		{
+			"area",
+			"base",
+			"br",
+			"col",
+			"command",
+			"embed",
+			"hr",
+			"img",
+			"input",
+			"keygen",
+			"link",
+			"meta",
+			"param",
+			"source",
+			"track",
+			"wbr",
+		};
 
-        /// <summary>
-        /// Textual content of the tag. Will be ignored in output if <see cref="Children"/>
-        /// has any elements.
-        /// </summary>
-        public virtual String Text { get; set; }
+		
+		private String _tagName;
 
-        public virtual SimplerHtmlTagSettings Settings { get; set; }
+		
+		/// <summary>
+		/// Is the this tag void (has no closing tag)?
+		/// </summary>
+		public Boolean IsVoid { get; private set; }
 
-        /// <summary>
-        /// Child elements.
-        /// </summary>
-        public virtual IList<SimplerHtmlTag> Children { get; set; }
+		/// <summary>
+		/// Name of the tag (not to be confused with "name" attribute).
+		/// </summary>
+		public String TagName
+		{
+			get => this._tagName;
+			set
+			{
+				this._tagName = value;
+				this.IsVoid = VoidTags.Contains(value);
+			}
+		}
 
-        /// <summary>
-        /// HTML attributes.
-        /// </summary>
-        public virtual IDictionary<string, object> Attrs { get; set; } 
+		/// <summary>
+		/// All HTML attributes of the tag.
+		/// </summary>
+		protected IDictionary<String, String> Attributes;
 
-        public SimplerHtmlTag(String tagName, SimplerHtmlTagSettings settings = null)
-        {
-            TagName = tagName;
-            Children = new List<SimplerHtmlTag>();
-            Attrs = new Dictionary<string, object>();
-            Settings = settings ?? new SimplerHtmlTagSettings();
-        }
+		/// <summary>
+		/// Content of the tag, if the tag is not void.
+		/// </summary>
+		/// <remarks>
+		/// <see cref="IHtmlContent"/> objects will be rendered as HTML (without escaping),
+		/// everything else will be <see cref="object.ToString"/>-ed and HTML-escaped.
+		/// </remarks>
+		public IList<Object> Content;
 
-        /// <summary>
-        /// Add an attribute / set an attribute's value.
-        /// </summary>
-        /// <param name="name">Name of the attribute.</param>
-        /// <param name="value">Value of the attribute.</param>
-        /// <returns></returns>
-        public SimplerHtmlTag Attr(String name, String value)
-        {
-            Attrs[name] = value;
-            return this;
-        }
 
-        /// <summary>
-        /// Add an HTML tag as a child of this tag.
-        /// </summary>
-        /// <param name="tag"></param>
-        /// <returns></returns>
-        public SimplerHtmlTag AddChild(SimplerHtmlTag tag)
-        {
-            Children.Add(tag);
-            return this;
-        }
+		/// <summary>
+		/// Constructor.
+		/// </summary>
+		/// <param name="tagName"></param>
+		public SimplerHtmlTag(String tagName)
+		{
+			this.TagName = tagName;
+			this.Attributes = new Dictionary<String, String>();
+		}
+		
+		/// <summary>
+		/// Set several attributes at once. Existing attributes values with matching keys will be overwritten.
+		/// </summary>
+		/// <param name="attributes"></param>
+		/// <returns></returns>
+		public SimplerHtmlTag SetAttributes(IDictionary<String, String> attributes)
+		{
+			foreach (var kv in attributes)
+				this.Attributes[kv.Key] = kv.Value;
+			return this;
+		}
 
-        public override string ToString()
-        {
-            var sb = new StringBuilder();
-            sb.Append('<').Append(TagName);
-            foreach (var attr in Attrs) {
-                sb.Append(' ').Append(attr.Key);
-                if (attr.Value != null && !(attr.Value is Boolean))
-                    sb.Append("=\"").Append(attr.Value).Append("\"");
-            }
+		/// <summary>
+		/// Set several no-value attributes (such as "readonly") at once.
+		/// </summary>
+		/// <param name="attributes"></param>
+		/// <returns></returns>
+		public SimplerHtmlTag SetAttributes(params String[] attributes)
+		{
+			foreach (var attr in attributes)
+				this.Attributes[attr] = null;
+			return this;
+		}
 
-            sb.Append('>');
+		/// <summary>
+		/// Add/overwrite a single attribute.
+		/// </summary>
+		/// <param name="key">Attribute key.</param>
+		/// <param name="value">Attribute value.</param>
+		/// <returns></returns>
+		public SimplerHtmlTag SetAttribute(String key, String value)
+		{
+			this.Attributes[key] = value;
+			return this;
+		}
 
-            if (Children.Any()) {
-                foreach (var child in Children) {
-                    if (Settings.NewLines)
-                        sb.AppendLine();
-                    sb.Append(child);
-                }
-                if (Settings.NewLines)
-                    sb.AppendLine();
-            } else {
-                sb.Append(HttpUtility.HtmlEncode(Text));
-            }
 
-            sb.Append("</").Append(TagName).Append('>');
-            return sb.ToString();
-        }
-    }
+		/// <summary>
+		/// Set a value-less attribute, e.g. "readonly", "disabled".
+		/// </summary>
+		/// <param name="key">Attribute key.</param>
+		/// <returns>Self for method chaining.</returns>
+		public SimplerHtmlTag SetAttribute(String key)
+		{
+			this.Attributes[key] = null;
+			return this;
+		}
+
+		/// <summary>
+		/// Remove an attribute from this tag.
+		/// </summary>
+		/// <param name="key"></param>
+		/// <returns></returns>
+		public SimplerHtmlTag RemoveAttribute(String key)
+		{
+			this.Attributes.Remove(key);
+			return this;
+		}
+
+		/// <summary>
+		/// See <see cref="IHtmlContent.WriteTo"/>.
+		/// </summary>
+		public void WriteTo(TextWriter writer, HtmlEncoder encoder)
+		{
+			IHtmlContentBuilder tag = new HtmlContentBuilder()
+				.AppendHtml($"<{this.TagName}");
+
+			// Attributes
+			foreach (var attr in this.Attributes)
+			{
+				tag.AppendHtml($" {attr.Key}");
+
+				if (attr.Value != null)
+					tag.AppendHtml("=\"").Append(attr.Value).AppendHtml("\"");
+			}
+
+			// Finish opening tag...
+			tag.AppendHtml(this.IsVoid ? " />" : ">");
+			tag.WriteTo(writer, encoder);
+			// ...and any voids
+			if (this.IsVoid)
+				return;
+
+			// Non-void tags
+			foreach (Object item in this.Content)
+			{
+				// ReSharper disable once SuggestVarOrType_SimpleTypes
+				var content = item as IHtmlContent
+					?? new HtmlContentBuilder().Append(item.ToString());
+				content.WriteTo(writer, encoder);
+			}
+
+			tag = new HtmlContentBuilder()
+				.AppendHtml($"</{this.TagName}>");
+
+			tag.WriteTo(writer, encoder);
+		}
+
+		/// <summary>
+		/// Output the HTML code of the tag.
+		/// </summary>
+		public override String ToString() { return this.ToString(HtmlEncoder.Default); }
+
+		/// <summary>
+		/// Pass the tag through an HTML encoder to get its string output.
+		/// </summary>
+		/// <param name="encoder">Encoder</param>
+		/// <returns>Encoder output after processing the tag.</returns>
+		public String ToString(HtmlEncoder encoder)
+		{
+			var writer = new StringWriter();
+			this.WriteTo(writer, encoder);
+
+			return writer.ToString();
+
+		}
+	}
 }

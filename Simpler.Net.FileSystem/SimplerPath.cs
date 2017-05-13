@@ -8,7 +8,7 @@ using Simpler.Net.Text;
 namespace Simpler.Net.FileSystem
 {
 	/// <summary>
-	/// Functions and methods that work with file & folder paths.
+	/// Functions and methods that work with file and folder paths.
 	/// </summary>
 	public class SimplerPath
 	{

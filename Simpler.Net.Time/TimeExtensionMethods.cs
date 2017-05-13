@@ -11,15 +11,16 @@ namespace Simpler.Net.Time
 		/// Convert a date and time into Unix timestamp (seconds since 1970-01-01 00:00:00).
 		/// </summary>
 		/// <param name="time">Date and time to convert.</param>
-		/// <typeparam name="TInt">Type of result. MUST be a 32 or 64 bit integer.</typeparam>
+		/// <typeparam name="TInt">Type of result. MUST be a signed 32 or 64 bit integer.</typeparam>
 		/// <returns>Seconds since the start of UNIX epoch.</returns>
-		/// <exception cref="Exception">Thrown if a type other than a 32 or 64 bit integer is
+		/// <exception cref="Exception">Thrown if a type other than a signed 32 or 64 bit integer is
 		/// set as <typeparamref name="TInt"/>.</exception>
 		public static TInt ToUnixTimeStamp<TInt>(this DateTime time)
 		{
 			DateTime origin = SimplerTime.UnixEpochStart;
 
 			var stamp = Math.Floor((time.ToUniversalTime() - origin).TotalSeconds);
+
 			dynamic result;
 
 			switch (typeof(TInt).Name)
@@ -27,17 +28,11 @@ namespace Simpler.Net.Time
 				case nameof(Int32):
 					result = Convert.ToInt32(stamp);
 					break;
-				case nameof(UInt32):
-					result = Convert.ToUInt32(stamp);
-					break;
 				case nameof(Int64):
 					result = Convert.ToInt64(stamp);
 					break;
-				case nameof(UInt64):
-					result = Convert.ToUInt64(stamp);
-					break;
 				default:
-					throw new Exception($"{nameof(TInt)} is not a valid type for a UNIX timestamp.");
+					throw new Exception($"{nameof(TInt)} is not a valid type for a UNIX timestamp, must be a signed integer.");
 			}
 
 			return result;

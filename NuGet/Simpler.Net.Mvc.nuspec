@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+    <metadata>
+        <id>Simpler.Net.Mvc</id>
+        <version>0.0.1.1</version>
+        <title>Simpler.Net.Mvc</title>
+        <authors>Modus Operandi</authors>
+        <licenseUrl>https://github.com/modo-lv/Simpler.Net/blob/master/Simpler.Net/LICENSE</licenseUrl>
+        <projectUrl>https://github.com/modo-lv/Simpler.Net/tree/master/Simpler.Net.Mvc</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Useful utilites and classes for dealing with .NET Core MVC.</description>
+        <releaseNotes></releaseNotes>
+        <tags>c# .net simpler mvc</tags>
+        <dependencies>
+            <group targetFramework="netcoreapp1.1">
+                <dependency id="Simpler.Net.Html" version="0.3.1" />
+            </group>
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="..\Simpler.Net.Mvc\bin\release\netcoreapp1.1\Simpler.Net.Mvc.dll" target="lib\netcoreapp1.1\Simpler.Net.Mvc.dll" />
+        <file src="..\Simpler.Net.Mvc\bin\release\netcoreapp1.1\Simpler.Net.Mvc.xml" target="lib\netcoreapp1.1\Simpler.Net.Mvc.xml" />
+    </files>
+</package>

@@ -1,10 +1,8 @@
 using System;
 using FluentAssertions;
 using Xunit;
-using Simpler.Net.Time;
 
-namespace Simpler.Net.Time.Tests
-{
+namespace Simpler.Net.Time.Tests {
 	[Trait("Category", "Time")]
 	public class TimestampTests
 	{

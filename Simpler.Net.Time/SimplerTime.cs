@@ -2,6 +2,9 @@
 
 namespace Simpler.Net.Time
 {
+	/// <summary>
+	/// Misc. date and time helpers and constants.
+	/// </summary>
 	public class SimplerTime
 	{
 		/// <summary>
