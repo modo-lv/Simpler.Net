@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text.Encodings.Web;
@@ -71,6 +72,8 @@ namespace Simpler.Net.Html
 		/// </remarks>
 		public IList<Object> Content;
 
+		protected ISet<String> Classes;
+
 
 		/// <summary>
 		/// Constructor.
@@ -80,6 +83,7 @@ namespace Simpler.Net.Html
 		{
 			this.TagName = tagName;
 			this.Attributes = new Dictionary<String, String>();
+			this.Classes = new HashSet<String>();
 		}
 		
 		/// <summary>
@@ -142,6 +146,34 @@ namespace Simpler.Net.Html
 		}
 
 		/// <summary>
+		/// Add a CSS class to the tag.
+		/// </summary>
+		/// <remarks>
+		/// If the tag already has the class, will not add it again.
+		/// </remarks>
+		/// <param name="className">Name of the CSS class to add.</param>
+		/// <returns>Self for method chaining.</returns>
+		public SimplerHtmlTag AddClass(String className)
+		{
+			this.Classes.Add(className);
+			return this;
+		}
+
+		/// <summary>
+		/// Remove a CSS class from this tag.
+		/// </summary>
+		/// <remarks>
+		/// Removes a CSS class from the list of CSS classes applied to this tag, if it contains it.
+		/// </remarks>
+		/// <param name="className">CSS class to remove.</param>
+		/// <returns>Self for method chaining.</returns>
+		public SimplerHtmlTag RemoveClass(String className)
+		{
+			this.Classes.Remove(className);
+			return this;
+		}
+
+		/// <summary>
 		/// See <see cref="IHtmlContent.WriteTo"/>.
 		/// </summary>
 		public void WriteTo(TextWriter writer, HtmlEncoder encoder)
@@ -149,13 +181,25 @@ namespace Simpler.Net.Html
 			IHtmlContentBuilder tag = new HtmlContentBuilder()
 				.AppendHtml($"<{this.TagName}");
 
-			// Attributes
+			// Regular attributes
 			foreach (var attr in this.Attributes)
 			{
+				// Any CSS classes added by AddClass() override direct attribute
+				if (attr.Key == "class" && this.Classes.Any())
+					continue;
+
 				tag.AppendHtml($" {attr.Key}");
 
 				if (attr.Value != null)
 					tag.AppendHtml("=\"").Append(attr.Value).AppendHtml("\"");
+			}
+
+			// CSS classes
+			if (this.Classes.Any())
+			{
+				tag.AppendHtml(" class=\"")
+					.Append(String.Join(" ", this.Classes))
+					.AppendHtml("\"");
 			}
 
 			// Finish opening tag...

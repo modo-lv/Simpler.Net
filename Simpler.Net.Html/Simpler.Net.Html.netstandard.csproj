@@ -6,9 +6,10 @@
     <Authors>Simpler.Net.Html</Authors>
     <Company>Simpler.Net.Html</Company>
     <Product>Simpler.Net.Html</Product>
-    <Version>0.3.1.1</Version>
+    <Version>0.3.1.4</Version>
     <AssemblyName>Simpler.Net.Html</AssemblyName>
     <RootNamespace>Simpler.Net.Html</RootNamespace>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">

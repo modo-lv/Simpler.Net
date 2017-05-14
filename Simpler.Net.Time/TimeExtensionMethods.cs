@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 
 namespace Simpler.Net.Time
 {
@@ -32,7 +33,8 @@ namespace Simpler.Net.Time
 					result = Convert.ToInt64(stamp);
 					break;
 				default:
-					throw new Exception($"{nameof(TInt)} is not a valid type for a UNIX timestamp, must be a signed integer.");
+					throw new Exception(
+						$"{nameof(TInt)} is not a valid type for a UNIX timestamp, must be a signed integer.");
 			}
 
 			return result;
@@ -77,5 +79,33 @@ namespace Simpler.Net.Time
 		/// </summary>
 		public static DateTime DropMilliseconds(this DateTime time)
 			=> time.Floor(TimeSpan.FromSeconds(1));
+
+
+		/// <summary>
+		/// Shorthand for outputting a culture-formatted date (short format, usually numbers only).
+		/// </summary>
+		/// <param name="date">Date to output</param>
+		/// <param name="cultureInfo">Culture to use for determining format. Set to <c>null</c> to use
+		/// <see cref="CultureInfo.CurrentCulture"/>.</param>
+		/// <returns></returns>
+		public static String ToShortDateString(this DateTime date, CultureInfo cultureInfo = null)
+		{
+			if (cultureInfo == null)
+				cultureInfo = CultureInfo.CurrentCulture;
+
+			return date.ToString(cultureInfo.DateTimeFormat.ShortDatePattern);
+		}
+
+		/// <summary>
+		/// Overload for <see cref="ToShortDateString(DateTime,CultureInfo)"/>
+		/// that supports nullable date.
+		/// </summary>
+		public static String ToShortDateString(this DateTime? date, CultureInfo cultureInfo = null)
+		{
+			if (cultureInfo == null)
+				cultureInfo = CultureInfo.CurrentCulture;
+
+			return date?.ToString(cultureInfo.DateTimeFormat.ShortDatePattern);
+		}
 	}
 }

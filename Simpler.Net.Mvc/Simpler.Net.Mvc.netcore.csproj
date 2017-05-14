@@ -4,7 +4,8 @@
     <TargetFramework>netcoreapp1.1</TargetFramework>
     <AssemblyName>Simpler.Net.Mvc</AssemblyName>
     <RootNamespace>Simpler.Net.Mvc</RootNamespace>
-    <Version>0.0.1.1</Version>
+    <Version>0.0.1.5</Version>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
