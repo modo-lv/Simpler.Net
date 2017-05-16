@@ -44,6 +44,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstractions\IDirectory.cs" />
+    <Compile Include="Abstractions\IFile.cs" />
+    <Compile Include="Abstractions\IFileSystem.cs" />
+    <Compile Include="Abstractions\Implementations\DotNetDirectory.cs" />
+    <Compile Include="Abstractions\Implementations\DotNetFile.cs" />
+    <Compile Include="Abstractions\Implementations\DotNetFileSystem.cs" />
+    <Compile Include="Abstractions\Implementations\NullDirectory.cs" />
+    <Compile Include="Abstractions\Implementations\NullFile.cs" />
+    <Compile Include="Abstractions\Implementations\NullFileSystem.cs" />
+    <Compile Include="Abstractions\Implementations\NullStream.cs" />
+    <Compile Include="FileSystemExtensionMethods.cs" />
     <Compile Include="PathAndName.cs" />
     <Compile Include="SimplerDirectory.cs" />
     <Compile Include="SimplerPath.cs" />
