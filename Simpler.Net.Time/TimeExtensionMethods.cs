@@ -97,15 +97,39 @@ namespace Simpler.Net.Time
 		}
 
 		/// <summary>
-		/// Overload for <see cref="ToShortDateString(DateTime,CultureInfo)"/>
-		/// that supports nullable date.
+		/// Output a date and time in localized short format, with single space as separator.
 		/// </summary>
-		public static String ToShortDateString(this DateTime? date, CultureInfo cultureInfo = null)
+		/// <example>
+		/// date.ToShortDateTimeString();
+		/// // 31.12.2010 23:59
+		/// </example>
+		/// <param name="date"></param>
+		/// <param name="cultureInfo">Culture to use for determining format. Set to <c>null</c> to 
+		/// use <see cref="CultureInfo.CurrentCulture"/>.</param>
+		/// <returns></returns>
+		public static String ToShortDateTimeString(this DateTime date, CultureInfo cultureInfo = null)
 		{
 			if (cultureInfo == null)
 				cultureInfo = CultureInfo.CurrentCulture;
 
-			return date?.ToString(cultureInfo.DateTimeFormat.ShortDatePattern);
+			return date.ToString(
+				$"{cultureInfo.DateTimeFormat.ShortDatePattern} {cultureInfo.DateTimeFormat.ShortTimePattern}");
+		}
+
+
+		/// <summary>
+		/// Outputs a date and time in the ISO8601 format that is also valid for HTML5's <c>&lt;time&gt;</c> tag.
+		/// </summary>
+		/// <remarks>
+		/// HTML5's <c>&lt;time&gt;</c> tag's <c>datetime</c> attribute only supports (considers valid)
+		/// fractions of seconds that are no more than 3 digits. Use this method to output a standard ISO8601
+		/// format date and time (almost identical to .NET's "o" format specifier) that observes this limit. 
+		/// </remarks>
+		/// <param name="time">Date and time to output.</param>
+		/// <returns>Text representing the time in HTML5-compatible ISO8601 format.</returns>
+		public static String ToIso8601HtmlString(this DateTime time)
+		{
+			return time.ToString("yyyy-MM-ddTHH:mm:ss.FFFK");
 		}
 	}
 }

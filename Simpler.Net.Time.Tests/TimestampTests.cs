@@ -1,5 +1,6 @@
 using System;
-using FluentAssertions;
+using System.Globalization;
+using Shouldly;
 using Xunit;
 
 namespace Simpler.Net.Time.Tests {
@@ -18,7 +19,7 @@ namespace Simpler.Net.Time.Tests {
 			DateTime result = SimplerTime.UnixEpochStart.AddSeconds(stamp);
 
 			// ASSERT
-			result.ShouldBeEquivalentTo(expect);
+			result.ShouldBe(expect);
 		}
 	}
 }
