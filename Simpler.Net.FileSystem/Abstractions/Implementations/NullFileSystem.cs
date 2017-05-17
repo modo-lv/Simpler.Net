@@ -12,11 +12,15 @@
 		/// <inheritdoc />
 		public IFile File { get; set; }
 
+		/// <inheritdoc />
+		public IPath Path { get; set; }
+
 		/// <inheritdoc cref="NullFileSystem"/>
 		public NullFileSystem()
 		{
 			this.Directory = new NullDirectory();
 			this.File = new NullFile();
+			this.Path = new NullPath();
 		}
 	}
 }

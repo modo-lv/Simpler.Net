@@ -11,11 +11,15 @@
 		/// <inheritdoc />
 		public IFile File { get; set; }
 
+		/// <inheritdoc />
+		public IPath Path { get; set; }
+
 		/// <inheritdoc cref="DotNetFileSystem"/>
 		public DotNetFileSystem()
 		{
 			this.Directory = new DotNetDirectory();
 			this.File = new DotNetFile();
+			this.Path = new DotNetPath();
 		}
 	}
 }

@@ -10,5 +10,8 @@
 
 		/// <inheritdoc cref="IFile" />
 		IFile File { get; set; }
+
+		/// <inheritdoc cref="IPath"/>
+		IPath Path { get; set; }
 	}
 }
