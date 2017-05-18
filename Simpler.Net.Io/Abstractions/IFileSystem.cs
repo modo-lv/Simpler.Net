@@ -1,4 +1,4 @@
-﻿namespace Simpler.Net.FileSystem.Abstractions
+﻿namespace Simpler.Net.Io.Abstractions
 {
 	/// <summary>
 	/// Contains all abstracted file system objects.

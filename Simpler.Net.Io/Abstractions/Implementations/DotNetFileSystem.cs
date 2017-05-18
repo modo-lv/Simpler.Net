@@ -1,4 +1,4 @@
-﻿namespace Simpler.Net.FileSystem.Abstractions.Implementations
+﻿namespace Simpler.Net.Io.Abstractions.Implementations
 {
 	/// <summary>
 	/// Implementation of <see cref="IFileSystem"/> interface, using .NET's System.IO static classes.

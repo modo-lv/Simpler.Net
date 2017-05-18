@@ -1,4 +1,4 @@
-﻿namespace Simpler.Net.FileSystem.Abstractions.Implementations
+﻿namespace Simpler.Net.Io.Abstractions.Implementations
 {
 	/// <summary>
 	/// Overrideable zero-function base class, meant for creating test and other custom 

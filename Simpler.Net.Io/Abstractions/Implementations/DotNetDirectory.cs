@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace Simpler.Net.FileSystem.Abstractions.Implementations
+namespace Simpler.Net.Io.Abstractions.Implementations
 {
 	/// <inheritdoc />
 	public class DotNetDirectory : IDirectory

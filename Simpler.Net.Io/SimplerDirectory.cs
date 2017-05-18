@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Text;
 
-namespace Simpler.Net.FileSystem
+namespace Simpler.Net.Io
 {
     /// <summary>
     /// Methods for working with directories

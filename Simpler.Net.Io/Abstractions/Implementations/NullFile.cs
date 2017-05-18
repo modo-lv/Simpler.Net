@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Simpler.Net.FileSystem.Abstractions.Implementations
+namespace Simpler.Net.Io.Abstractions.Implementations
 {
 	/// <summary>
 	/// Base class for creating test or other custom, partially functioning implementations of <see cref="IFile"/>.

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace Simpler.Net.FileSystem.Abstractions
+namespace Simpler.Net.Io.Abstractions
 {
 	/// <inheritdoc cref="Path"/>
 	public interface IPath

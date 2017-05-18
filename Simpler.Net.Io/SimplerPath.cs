@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
-using Simpler.Net.FileSystem.Abstractions;
 using Simpler.Net.Text;
 
-namespace Simpler.Net.FileSystem
+namespace Simpler.Net.Io
 {
 	/// <summary>
 	/// Functions and methods that work with file and folder paths.

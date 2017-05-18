@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace Simpler.Net.FileSystem.Abstractions
+namespace Simpler.Net.Io.Abstractions
 {
 	/// <summary>Methods for creating, moving, and enumerating through directories and subdirectories.</summary>
 	public interface IDirectory

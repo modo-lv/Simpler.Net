@@ -1,8 +1,8 @@
 ﻿using System;
 using System.IO;
-using Simpler.Net.FileSystem.Abstractions;
+using Simpler.Net.Io.Abstractions;
 
-namespace Simpler.Net.FileSystem
+namespace Simpler.Net.Io
 {
 	/// <summary>
 	/// Extensions for <see cref="IFileSystem"/>.

@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace Simpler.Net.FileSystem.Abstractions.Implementations
+namespace Simpler.Net.Io.Abstractions.Implementations
 {
 	/// <inheritdoc />
 	public class NullPath : IPath

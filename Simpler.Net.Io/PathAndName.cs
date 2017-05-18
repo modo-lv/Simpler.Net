@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Simpler.Net.FileSystem
+namespace Simpler.Net.Io
 {
 	/// <summary>
 	/// A simple class for holding a file or folder's name as well
