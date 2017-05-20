@@ -7,5 +7,8 @@ namespace Simpler.Net.Io.Abstractions.Implementations
 	{
 		/// <inheritdoc />
 		public String GetTempFileName() => null;
+
+		/// <inheritdoc />
+		public String GetTempPath() => null;
 	}
 }

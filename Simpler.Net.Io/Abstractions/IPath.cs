@@ -8,5 +8,8 @@ namespace Simpler.Net.Io.Abstractions
 	{
 		/// <inheritdoc cref="Path.GetTempFileName"/>
 		String GetTempFileName();
+
+		/// <inheritdoc cref="Path.GetTempPath"/>
+		String GetTempPath();
 	}
 }
