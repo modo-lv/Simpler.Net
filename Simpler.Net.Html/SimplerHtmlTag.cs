@@ -83,6 +83,7 @@ namespace Simpler.Net.Html
 		{
 			this.TagName = tagName;
 			this.Attributes = new Dictionary<String, String>();
+			this.Content = new List<Object>();
 			this.Classes = new HashSet<String>();
 		}
 		
@@ -170,6 +171,18 @@ namespace Simpler.Net.Html
 		public SimplerHtmlTag RemoveClass(String className)
 		{
 			this.Classes.Remove(className);
+			return this;
+		}
+
+		/// <summary>
+		/// Replace tag contents with plain text.
+		/// </summary>
+		/// <param name="content"></param>
+		/// <returns>self for method chaining.</returns>
+		public SimplerHtmlTag SetTextContent(String content)
+		{
+			this.Content.Clear();
+			this.Content.Add(content);
 			return this;
 		}
 
