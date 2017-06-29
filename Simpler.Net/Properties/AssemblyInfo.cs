@@ -1,4 +1,4 @@
-﻿#if !NETSTANDARD
+﻿#if !NETSTANDARD1_0
 
 using System.Reflection;
 using System.Runtime.CompilerServices;
