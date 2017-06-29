@@ -9,7 +9,7 @@ Miscellaneous, mostly atomic utilities, methods, workarounds and wrappers.
 A concise and readable way to retrieve a dictionary entry if it exists, or a default value if it doesn't.
 
 ```cs
-var foo = new Dictionary<String, Int>();
+var foo = new Dictionary<String, int>();
 Console.WriteLine(foo.Get("none"));
 Console.WriteLine(foo.Get("none", fallback:12));
 // Output:
