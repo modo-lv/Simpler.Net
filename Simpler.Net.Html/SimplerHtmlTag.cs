@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text.Encodings.Web;
@@ -9,12 +8,14 @@ using Microsoft.AspNetCore.Html;
 namespace Simpler.Net.Html
 {
 	/// <summary>
-	/// A class for manipulating HTML tags.
+	/// A class representing a HTML tag.
+	/// Mainly intended for creating / building HTML tags
+	/// in an object-oriented way.
 	/// </summary>
 	public class SimplerHtmlTag : IHtmlContent
 	{
 		/// <summary>
-		/// List of tags that do not have a closing tag.
+		/// Names of HTML tags that do not have a closing tag.
 		/// </summary>
 		public static readonly String[] VoidTags =
 		{
@@ -37,18 +38,18 @@ namespace Simpler.Net.Html
 		};
 
 		
-		private String _tagName;
+		protected String _tagName;
 
 		
 		/// <summary>
 		/// Is the this tag void (has no closing tag)?
 		/// </summary>
-		public Boolean IsVoid { get; private set; }
+		public virtual Boolean IsVoid { get; protected set; }
 
 		/// <summary>
-		/// Name of the tag (not to be confused with "name" attribute).
+		/// Tag name (not to be confused with the "name" attribute).
 		/// </summary>
-		public String TagName
+		public virtual String TagName
 		{
 			get => this._tagName;
 			set
@@ -61,7 +62,7 @@ namespace Simpler.Net.Html
 		/// <summary>
 		/// All HTML attributes of the tag.
 		/// </summary>
-		protected IDictionary<String, String> Attributes;
+		protected IDictionary<String, SimplerHtmlTagAttribute> Attributes;
 
 		/// <summary>
 		/// Content of the tag, if the tag is not void.
@@ -72,6 +73,9 @@ namespace Simpler.Net.Html
 		/// </remarks>
 		public IList<Object> Content;
 
+		/// <summary>
+		/// CSS classes applied to this tag.
+		/// </summary>
 		protected ISet<String> Classes;
 
 
@@ -82,32 +86,33 @@ namespace Simpler.Net.Html
 		public SimplerHtmlTag(String tagName)
 		{
 			this.TagName = tagName;
-			this.Attributes = new Dictionary<String, String>();
+			this.Attributes = new Dictionary<String, SimplerHtmlTagAttribute>();
 			this.Content = new List<Object>();
 			this.Classes = new HashSet<String>();
 		}
 		
+
 		/// <summary>
-		/// Set several attributes at once. Existing attributes values with matching keys will be overwritten.
+		/// Set several attributes at once. Existing attributes with matching keys will be overwritten.
 		/// </summary>
 		/// <param name="attributes"></param>
 		/// <returns></returns>
 		public SimplerHtmlTag SetAttributes(IDictionary<String, String> attributes)
 		{
 			foreach (var kv in attributes)
-				this.Attributes[kv.Key] = kv.Value;
+				this.Attributes[kv.Key] = new SimplerHtmlTagAttribute(kv.Key, kv.Value);
 			return this;
 		}
 
 		/// <summary>
-		/// Set several no-value attributes (such as "readonly") at once.
+		/// Set several void attributes (such as "readonly") at once.
 		/// </summary>
 		/// <param name="attributes"></param>
 		/// <returns></returns>
 		public SimplerHtmlTag SetAttributes(params String[] attributes)
 		{
 			foreach (var attr in attributes)
-				this.Attributes[attr] = null;
+				this.Attributes[attr] = new SimplerHtmlTagAttribute(attr, value: null);
 			return this;
 		}
 
@@ -119,7 +124,7 @@ namespace Simpler.Net.Html
 		/// <returns></returns>
 		public SimplerHtmlTag SetAttribute(String key, String value)
 		{
-			this.Attributes[key] = value;
+			this.Attributes[key] = new SimplerHtmlTagAttribute(key, value);
 			return this;
 		}
 
@@ -131,7 +136,7 @@ namespace Simpler.Net.Html
 		/// <returns>Self for method chaining.</returns>
 		public SimplerHtmlTag SetAttribute(String key)
 		{
-			this.Attributes[key] = null;
+			this.Attributes[key] = new SimplerHtmlTagAttribute(key, null);
 			return this;
 		}
 
@@ -144,6 +149,16 @@ namespace Simpler.Net.Html
 		{
 			this.Attributes.Remove(key);
 			return this;
+		}
+
+		/// <summary>
+		/// Check if tag has a given attribute set.
+		/// </summary>
+		/// <param name="key">Name of the attribute to set.</param>
+		/// <returns><c>true</c> if the attribute has been set, <c>false</c> otherwise</returns>
+		public Boolean HasAttribute(String key)
+		{
+			return this.Attributes.ContainsKey(key);
 		}
 
 		/// <summary>
@@ -175,10 +190,20 @@ namespace Simpler.Net.Html
 		}
 
 		/// <summary>
-		/// Replace tag contents with plain text.
+		/// Check if this tag has a given CSS class set.
 		/// </summary>
-		/// <param name="content"></param>
-		/// <returns>self for method chaining.</returns>
+		/// <param name="className">Class to look for.</param>
+		/// <returns><c>true</c> if this tag has <paramref name="className"/> set, <c>false</c> otherwise.</returns>
+		public Boolean HasClass(String className)
+		{
+			return this.Classes.Contains(className); 
+		}
+
+		/// <summary>
+		/// Replace all tag's contents with plain text.
+		/// </summary>
+		/// <param name="content">Text to replace tag content with.</param>
+		/// <returns>Self for method chaining.</returns>
 		public SimplerHtmlTag SetTextContent(String content)
 		{
 			this.Content.Clear();
@@ -186,22 +211,20 @@ namespace Simpler.Net.Html
 			return this;
 		}
 
-		/// <summary>
-		/// See <see cref="IHtmlContent.WriteTo"/>.
-		/// </summary>
+		/// <inheritdoc cref="IHtmlContent.WriteTo"/>
 		public void WriteTo(TextWriter writer, HtmlEncoder encoder)
 		{
 			IHtmlContentBuilder tag = new HtmlContentBuilder()
 				.AppendHtml($"<{this.TagName}");
 
 			// Regular attributes
-			foreach (var attr in this.Attributes)
+			foreach (SimplerHtmlTagAttribute attr in this.Attributes.Values)
 			{
 				// Any CSS classes added by AddClass() override direct attribute
-				if (attr.Key == "class" && this.Classes.Any())
+				if (attr.Name == "class" && this.Classes.Any())
 					continue;
 
-				tag.AppendHtml($" {attr.Key}");
+				tag.AppendHtml($" {attr.Name}");
 
 				if (attr.Value != null)
 					tag.AppendHtml("=\"").Append(attr.Value).AppendHtml("\"");
@@ -253,7 +276,6 @@ namespace Simpler.Net.Html
 			this.WriteTo(writer, encoder);
 
 			return writer.ToString();
-
 		}
 	}
 }

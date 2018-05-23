@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using Newtonsoft.Json.Linq;
 
 namespace Simpler.Net
 {
@@ -27,6 +30,56 @@ namespace Simpler.Net
 			if (dictionary.ContainsKey(key))
 				return dictionary[key];
 			return fallback;
+		}
+
+		/// <summary>
+		/// Convert fields and properties of an object to a flat dictionary of <see cref="String"/>
+		/// keys and values. Source: http://geeklearning.io/serialize-an-object-to-an-url-encoded-string-in-csharp/
+		/// </summary>
+		/// <remarks>
+		///	Uses JSON.NET serialization for key names and string values, thus key values are serialized
+		/// in a web-friendly "parent.child[arrayIndex]=value" format.
+		/// </remarks>
+		/// <param name="obj">Object to serialize</param>
+		/// <param name="recursively">Also include child objects?</param>
+		/// <returns></returns>
+		public static IDictionary<String, String> ToStringDictionary(this Object obj, Boolean recursively = true)
+		{
+			if (obj == null)
+				return null;
+
+			if (!(obj is JToken token))
+			{
+				return ToStringDictionary(JObject.FromObject(obj));
+			}
+
+			if (token.HasValues)
+			{
+				var contentData = new Dictionary<String, String>();
+				foreach (JToken child in token.Children().ToList())
+				{
+					var childContent = child.ToStringDictionary();
+					if (childContent != null)
+					{
+						contentData = contentData.Concat(childContent)
+							.ToDictionary(k => k.Key, v => v.Value);
+					}
+				}
+
+				return contentData;
+			}
+
+			var jValue = token as JValue;
+			if (jValue?.Value == null)
+			{
+				return null;
+			}
+
+			var value = jValue.Type == JTokenType.Date ?
+				jValue.ToString("o", CultureInfo.InvariantCulture) :
+				jValue.ToString(CultureInfo.InvariantCulture);
+
+			return new Dictionary<String, String> { { token.Path, value } };
 		}
 	}
 }

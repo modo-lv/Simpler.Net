@@ -15,11 +15,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simpler.Net.Html.netstandar
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simpler.Net.Mvc.netcore", "Simpler.Net.Mvc\Simpler.Net.Mvc.netcore.csproj", "{F0B3A701-F489-4E84-9C6A-150464F70875}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simpler.Net.Html.Tests", "Simpler.Net.Html.Tests\Simpler.Net.Html.Tests.csproj", "{567EAEF5-79E2-40CE-8A7A-EEE4BD4EA62F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simpler.Net.Html.Tests", "Simpler.Net.Html.Tests\Simpler.Net.Html.Tests.csproj", "{567EAEF5-79E2-40CE-8A7A-EEE4BD4EA62F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simpler.Net.Time.Tests", "Simpler.Net.Time.Tests\Simpler.Net.Time.Tests.csproj", "{6309D577-EEBB-42ED-A52A-FAB2FC3D6E3F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simpler.Net.Io.netstandard", "Simpler.Net.Io\Simpler.Net.Io.netstandard.csproj", "{593ABFED-31C2-4B20-9C4B-87B4E38CB584}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simpler.Net.Tests", "Simpler.Net.Tests\Simpler.Net.Tests.csproj", "{AFF59505-3CDB-4BBC-AC13-BBEE0FBD35DB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -139,8 +141,23 @@ Global
 		{593ABFED-31C2-4B20-9C4B-87B4E38CB584}.Release|x64.Build.0 = Release|Any CPU
 		{593ABFED-31C2-4B20-9C4B-87B4E38CB584}.Release|x86.ActiveCfg = Release|Any CPU
 		{593ABFED-31C2-4B20-9C4B-87B4E38CB584}.Release|x86.Build.0 = Release|Any CPU
+		{AFF59505-3CDB-4BBC-AC13-BBEE0FBD35DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFF59505-3CDB-4BBC-AC13-BBEE0FBD35DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFF59505-3CDB-4BBC-AC13-BBEE0FBD35DB}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{AFF59505-3CDB-4BBC-AC13-BBEE0FBD35DB}.Debug|x64.Build.0 = Debug|Any CPU
+		{AFF59505-3CDB-4BBC-AC13-BBEE0FBD35DB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{AFF59505-3CDB-4BBC-AC13-BBEE0FBD35DB}.Debug|x86.Build.0 = Debug|Any CPU
+		{AFF59505-3CDB-4BBC-AC13-BBEE0FBD35DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFF59505-3CDB-4BBC-AC13-BBEE0FBD35DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFF59505-3CDB-4BBC-AC13-BBEE0FBD35DB}.Release|x64.ActiveCfg = Release|Any CPU
+		{AFF59505-3CDB-4BBC-AC13-BBEE0FBD35DB}.Release|x64.Build.0 = Release|Any CPU
+		{AFF59505-3CDB-4BBC-AC13-BBEE0FBD35DB}.Release|x86.ActiveCfg = Release|Any CPU
+		{AFF59505-3CDB-4BBC-AC13-BBEE0FBD35DB}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E5B7C9B9-2BC8-48EE-A39B-EC682C08C22E}
 	EndGlobalSection
 EndGlobal

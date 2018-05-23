@@ -28,7 +28,7 @@ namespace Simpler.Net.Io
 		public static String Combine(IEnumerable<String> pathParts, String separator = null)
 		{
 			// ReSharper disable once SuggestVarOrType_Elsewhere
-			var array = pathParts as String[] ?? pathParts.IfNotNull(pp => pp.ToArray());
+			var array = pathParts as String[] ?? pathParts?.ToArray();
 			if (array == null || !array.Any())
 				return String.Empty;
 
@@ -102,26 +102,6 @@ namespace Simpler.Net.Io
 			var result = Regex.Replace(path, @"(?:/|\\)+", separator, RegexOptions.Compiled);
 
 			return result;
-		}
-
-		/// <summary>
-		/// Separate the last part of a path (file or folder name) from
-		/// a given path and return it along with the remaining path.
-		/// </summary>
-		/// <param name="path"></param>
-		/// <returns>Value1 is path, </returns>
-		public static PathAndName SplitPathAndName(String path)
-		{
-			var parts = Split(path).ToList();
-			if (!parts.Any())
-				throw new Exception("Cannot split an empty path!");
-			var name = parts.Last();
-			parts.RemoveAt(parts.Count - 1);
-			return new PathAndName
-			{
-				Path = Combine(parts),
-				Name = name
-			};
 		}
 	}
 }

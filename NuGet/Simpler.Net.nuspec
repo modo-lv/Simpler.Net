@@ -1,15 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
-        <id>Simpler.Net</id>
-        <version>0.2.0.5</version>
-        <title>Simpler.Net</title>
-        <authors>Modus Operandi</authors>
-        <licenseUrl>https://github.com/modo-lv/Simpler.Net/blob/master/Simpler.Net/LICENSE</licenseUrl>
-        <projectUrl>https://github.com/modo-lv/Simpler.Net/tree/master/Simpler.Net</projectUrl>
-        <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>All sorts of miscellaneous, mostly atomic utilities, methods, workarounds and wrappers.</description>
-        <tags>c# .net simpler</tags>
+			<id>Simpler.Net</id>
+			<version>0.2.2-alpha-3</version>
+			<title>Simpler.Net</title>
+			<authors>Modus Operandi</authors>
+			<licenseUrl>https://github.com/modo-lv/Simpler.Net/blob/master/Simpler.Net/LICENSE</licenseUrl>
+			<projectUrl>https://github.com/modo-lv/Simpler.Net/tree/master/Simpler.Net</projectUrl>
+			<requireLicenseAcceptance>false</requireLicenseAcceptance>
+			<description>All sorts of miscellaneous, mostly atomic utilities, methods, workarounds and wrappers.</description>
+			<tags>c# .net simpler</tags>
+			<dependencies>
+				<group targetFramework="net40">
+					<dependency id="Newtonsoft.Json" version="9.0.1" />
+				</group>
+				<group targetFramework="netstandard1.3">
+					<dependency id="Newtonsoft.Json" version="9.0.1" />
+				</group>
+			</dependencies>
     </metadata>
     <files>
         <file src="..\Simpler.Net\bin\Release\net35\Simpler.Net.dll" target="lib\net35\Simpler.Net.dll" />

@@ -13,5 +13,8 @@ namespace Simpler.Net.Io.Abstractions.Implementations
 
 		/// <inheritdoc />
 		public String GetCurrentDirectory() => null;
+
+		/// <inheritdoc />
+		public Boolean Exists(String path) => false;
 	}
 }

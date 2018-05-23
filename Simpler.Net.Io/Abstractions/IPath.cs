@@ -11,5 +11,8 @@ namespace Simpler.Net.Io.Abstractions
 
 		/// <inheritdoc cref="Path.GetTempPath"/>
 		String GetTempPath();
+
+		/// <inheritdoc cref="Path.GetDirectoryName" />
+		String GetDirectoryName(String path);
 	}
 }

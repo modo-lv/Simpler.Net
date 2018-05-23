@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.6
+VisualStudioVersion = 15.0.26621.2
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simpler.Net", "Simpler.Net\Simpler.Net.csproj", "{06B0DF96-B013-411D-BAB5-996DDAB5E3B0}"
 EndProject
@@ -18,8 +18,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simpler.Net.Abstractions", "Simpler.Net.Abstractions\Simpler.Net.Abstractions.csproj", "{7DD9DC06-C5E8-4A73-B1E9-F6C60C54D83F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simpler.Net.Time", "Simpler.Net.Time\Simpler.Net.Time.csproj", "{C882D97A-24E7-45B8-9C60-D83BD41DB973}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simpler.Net.Tests", "Simpler.Net.Tests\Simpler.Net.Tests.csproj", "{AC9A1A66-27F7-4EDE-B42F-AF096105599A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simpler.Net.Http", "Simpler.Net.Http\Simpler.Net.Http.csproj", "{E1093C1A-3CB9-4365-A6FF-60987F3007EC}"
 EndProject
@@ -131,18 +129,6 @@ Global
 		{C882D97A-24E7-45B8-9C60-D83BD41DB973}.Release|x64.Build.0 = Release|Any CPU
 		{C882D97A-24E7-45B8-9C60-D83BD41DB973}.Release|x86.ActiveCfg = Release|Any CPU
 		{C882D97A-24E7-45B8-9C60-D83BD41DB973}.Release|x86.Build.0 = Release|Any CPU
-		{AC9A1A66-27F7-4EDE-B42F-AF096105599A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AC9A1A66-27F7-4EDE-B42F-AF096105599A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AC9A1A66-27F7-4EDE-B42F-AF096105599A}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{AC9A1A66-27F7-4EDE-B42F-AF096105599A}.Debug|x64.Build.0 = Debug|Any CPU
-		{AC9A1A66-27F7-4EDE-B42F-AF096105599A}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{AC9A1A66-27F7-4EDE-B42F-AF096105599A}.Debug|x86.Build.0 = Debug|Any CPU
-		{AC9A1A66-27F7-4EDE-B42F-AF096105599A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AC9A1A66-27F7-4EDE-B42F-AF096105599A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AC9A1A66-27F7-4EDE-B42F-AF096105599A}.Release|x64.ActiveCfg = Release|Any CPU
-		{AC9A1A66-27F7-4EDE-B42F-AF096105599A}.Release|x64.Build.0 = Release|Any CPU
-		{AC9A1A66-27F7-4EDE-B42F-AF096105599A}.Release|x86.ActiveCfg = Release|Any CPU
-		{AC9A1A66-27F7-4EDE-B42F-AF096105599A}.Release|x86.Build.0 = Release|Any CPU
 		{E1093C1A-3CB9-4365-A6FF-60987F3007EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E1093C1A-3CB9-4365-A6FF-60987F3007EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1093C1A-3CB9-4365-A6FF-60987F3007EC}.Debug|x64.ActiveCfg = Debug|Any CPU
@@ -170,5 +156,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B80326BB-A496-4802-9C48-D23335150288}
 	EndGlobalSection
 EndGlobal

@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
     <metadata>
         <id>Simpler.Net.Html</id>
-        <version>0.3.2-alpha-2</version>
+        <version>0.3.2-alpha-4</version>
         <title>Simpler.Net.Html</title>
         <authors>Modus Operandi</authors>
         <licenseUrl>https://github.com/modo-lv/Simpler.Net/blob/master/Simpler.Net/LICENSE</licenseUrl>
@@ -18,7 +18,7 @@
         </dependencies>
     </metadata>
     <files>
-        <file src="..\Simpler.Net.Html\bin\release\netstandard1.0\Simpler.Net.Html.dll" target="lib\netstandard1.0\Simpler.Net.Html.dll" />
-        <file src="..\Simpler.Net.Html\bin\release\netstandard1.0\Simpler.Net.Html.xml" target="lib\netstandard1.0\Simpler.Net.Html.xml" />
+        <file src="..\Simpler.Net.Html\bin\release\netstandard1.3\Simpler.Net.Html.dll" target="lib\netstandard1.3\Simpler.Net.Html.dll" />
+        <file src="..\Simpler.Net.Html\bin\release\netstandard1.3\Simpler.Net.Html.xml" target="lib\netstandard1.3\Simpler.Net.Html.xml" />
     </files>
 </package>

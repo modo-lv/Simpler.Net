@@ -1,6 +1,6 @@
 using System;
 using System.Globalization;
-using Shouldly;
+using FluentAssertions;
 using Xunit;
 
 namespace Simpler.Net.Time.Tests {
@@ -19,7 +19,21 @@ namespace Simpler.Net.Time.Tests {
 			DateTime result = SimplerTime.UnixEpochStart.AddSeconds(stamp);
 
 			// ASSERT
-			result.ShouldBe(expect);
+			result.ShouldBeEquivalentTo(expect);
+		}
+
+		[Fact]
+		public void FractionalTimestampConvertedCorrectly()
+		{
+			// ARRANGE
+			const Decimal input = 0.12M;
+			DateTime expected = SimplerTime.UnixEpochStart.AddSeconds(0.12);
+
+			// ACT
+			DateTime time = input.ToDateTime();
+
+			// ASSERT
+			time.ShouldBeEquivalentTo(expected);
 		}
 	}
 }

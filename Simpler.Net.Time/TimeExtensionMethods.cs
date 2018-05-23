@@ -9,6 +9,28 @@ namespace Simpler.Net.Time
 	public static class TimeExtensionMethods
 	{
 		/// <summary>
+		/// Convert an extended UNIX timestamp.
+		/// to <see cref="DateTime"/>.
+		/// </summary>
+		/// <param name="stamp">Seconds (including milliseconds as decimals) since UNIX epoch</param>
+		public static DateTime ToDateTime(this Double stamp) =>
+			SimplerTime.UnixEpochStart.AddSeconds(stamp);
+
+		/// <inheritdoc cref="ToDateTime(double)"/>
+		public static DateTime ToDateTime(this Int64 stamp) =>
+			ToDateTime((Double) stamp);
+
+		/// <inheritdoc cref="ToDateTime(double)"/>
+		public static DateTime ToDateTime(this Int32 stamp) =>
+			ToDateTime((Double) stamp);
+
+		/// <inheritdoc cref="ToDateTime(double)"/>
+		public static DateTime ToDateTime(this Decimal stamp) =>
+			ToDateTime((Double) stamp);
+
+
+
+		/// <summary>
 		/// Convert a date and time into Unix timestamp (seconds since 1970-01-01 00:00:00).
 		/// </summary>
 		/// <param name="time">Date and time to convert.</param>
@@ -20,17 +42,25 @@ namespace Simpler.Net.Time
 		{
 			DateTime origin = SimplerTime.UnixEpochStart;
 
-			var stamp = Math.Floor((time.ToUniversalTime() - origin).TotalSeconds);
+			Double stamp;
+
+			stamp = (time.ToUniversalTime() - origin).TotalSeconds;
 
 			dynamic result;
 
 			switch (typeof(TInt).Name)
 			{
 				case nameof(Int32):
-					result = Convert.ToInt32(stamp);
+					result = Convert.ToInt32(Math.Floor(stamp));
 					break;
 				case nameof(Int64):
-					result = Convert.ToInt64(stamp);
+					result = Convert.ToInt64(Math.Floor(stamp));
+					break;
+				case nameof(Decimal):
+					result = (Decimal)stamp;
+					break;
+				case nameof(Double):
+					result = stamp;
 					break;
 				default:
 					throw new Exception(
@@ -39,6 +69,12 @@ namespace Simpler.Net.Time
 
 			return result;
 		}
+
+		/// <summary>
+		/// Syntactic sugar for <see cref="ToUnixTimeStamp{TInt}"/> using <see cref="long"/>.
+		/// </summary>
+		public static Int64 ToUnixTimeStamp(this DateTime time)
+			=> time.ToUnixTimeStamp<Int64>();
 
 		/// <summary>
 		/// Truncate a <see cref="DateTime"/> object to a given "precision".
