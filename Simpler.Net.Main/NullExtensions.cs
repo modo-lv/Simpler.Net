@@ -1,8 +1,10 @@
-﻿namespace Simpler.Net.Main;
+using System;
+
+namespace Simpler.Net.Main;
 
 public static class NullExtensions {
   /// <summary>
-  /// Return a value's <see cref="String"/> representation, or a fallback if the value is null.
+  /// Return a value's <see cref="string"/> representation, or a fallback if the value is null.
   /// A fluent alternative to <code>value?.ToString() ?? fallback;</code>
   /// </summary>
   /// <param name="value">Value to call <c>.ToString()</c> on.</param>

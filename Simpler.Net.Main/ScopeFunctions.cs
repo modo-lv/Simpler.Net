@@ -1,4 +1,6 @@
-﻿namespace Simpler.Net.Main;
+using System;
+
+namespace Simpler.Net.Main;
 
 /// <summary>
 /// Provides scope extension methods similar to Kotlin's `let`, `run`, etc.

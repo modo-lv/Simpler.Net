@@ -1,4 +1,4 @@
-﻿using Simpler.Net.Main;
+using Simpler.Net.Main;
 
 namespace Simpler.Net.Tests;
 
