@@ -4,7 +4,7 @@
         <TargetFramework>netstandard1.0</TargetFramework>
         <Nullable>enable</Nullable>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <Version>0.0.1</Version>
+        <Version>0.0.2</Version>
         <Authors>modo_lv</Authors>
         <LangVersion>default</LangVersion>
     </PropertyGroup>
