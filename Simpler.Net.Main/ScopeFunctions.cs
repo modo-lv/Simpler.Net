@@ -15,11 +15,11 @@ public static class ScopeFunctions {
   /// context function.
   /// </remarks>
   /// <param name="it">Context object.</param>
-  /// <param name="a">Action to perform.</param>
+  /// <param name="action">Action to perform.</param>
   /// <typeparam name="TIt">Context object type.</typeparam>
   /// <returns>Context object.</returns>
-  public static TIt Also<TIt>(this TIt it, Action<TIt> a) {
-    a(it);
+  public static TIt Also<TIt>(this TIt it, Action<TIt> action) {
+    action(it);
     return it;
   }
   
@@ -32,11 +32,13 @@ public static class ScopeFunctions {
   /// context function.
   /// </remarks>
   /// <param name="it">Context object.</param>
-  /// <param name="f">Function to invoke.</param>
+  /// <param name="func">Function to invoke.</param>
   /// <typeparam name="TIt">Context object type.</typeparam>
   /// <typeparam name="TResult">Result type.</typeparam>
-  /// <returns>Result of invoking <paramref name="f"/> with <paramref name="it"/> as the argument.</returns>
-  public static TResult Let<TIt, TResult>(this TIt it, Func<TIt, TResult> f) {
-    return f(it);
+  /// <returns>
+  /// Result of invoking <paramref name="func"/> with <paramref name="it"/> as the argument.
+  /// </returns>
+  public static TResult Let<TIt, TResult>(this TIt it, Func<TIt, TResult> func) {
+    return func(it);
   }
 }
